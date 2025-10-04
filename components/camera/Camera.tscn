@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb51jup12fc1j"]
+
+[ext_resource type="Script" uid="uid://3pn5clp7ks27" path="res://components/camera/Camera.gd" id="1"]
+
+[node name="Camera3D" type="Camera2D" groups=["camera"]]
+script = ExtResource("1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -613.0
+offset_top = -337.0
+offset_right = 611.0
+offset_bottom = 334.0
+color = Color(0.9820221, 0.28973213, 1.1374342, 0.44705883)

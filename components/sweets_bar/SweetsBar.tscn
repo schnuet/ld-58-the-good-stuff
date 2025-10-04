@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwwxkic0vblql"]
+
+[ext_resource type="Script" uid="uid://5b26ws6rbskg" path="res://components/sweets_bar/sweets_bar.gd" id="1_vt8a2"]
+
+[node name="SweetsBar" type="Control" groups=["sweets_bar"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vt8a2")
+
+[node name="Cookies" type="Node2D" parent="."]
+visible = false
+
+[node name="Polygon2D" type="Polygon2D" parent="Cookies"]
+color = Color(0.9385153, 0.60907435, 0.16803151, 1)
+polygon = PackedVector2Array(0, -22, 9, -21, 13, -16, 14, -10, 12, -4, 6, -1, 0, 0, -4, -1, -8, -3, -11, -6, -12, -11, -11, -17, -6, -21)
+
+[node name="Lolly" type="Node2D" parent="."]
+visible = false
+
+[node name="Polygon2D" type="Polygon2D" parent="Lolly"]
+color = Color(0.99999994, 0.263377, 0.5882054, 1)
+polygon = PackedVector2Array(-5, -17, -5, -19, -2, -21, 2, -21, 5, -18, 5, -15, 1, -12, 1, 0, -1, 0, -1, -12, -4, -14)
+
+[node name="Chocolate" type="Node2D" parent="."]
+visible = false
+
+[node name="Polygon2D" type="Polygon2D" parent="Chocolate"]
+color = Color(0.87547135, 0.38507566, 0.25868642, 1)
+polygon = PackedVector2Array(-13, -5, -8, 1, 15, -10, 12, -19)

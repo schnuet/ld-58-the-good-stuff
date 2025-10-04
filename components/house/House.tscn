@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx8uwa5pkxxwx"]
+
+[ext_resource type="Script" uid="uid://f85jpy5bb5ne" path="res://components/house/house.gd" id="1_4pyhr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0onay"]
+radius = 71.69
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pyhr"]
+size = Vector2(565, 97)
+
+[node name="House" type="Node2D"]
+script = ExtResource("1_4pyhr")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.37811363, 0.72979957, 0.808168, 1)
+polygon = PackedVector2Array(-164, -1, -176, -310, 449, -329, 401, 0)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color(0.9766666, 1, 0.65, 1)
+polygon = PackedVector2Array(-79, 0, -95, -208, 68, -213, 74, 5)
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_0onay")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(118.5, -49.5)
+shape = SubResource("RectangleShape2D_4pyhr")
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
