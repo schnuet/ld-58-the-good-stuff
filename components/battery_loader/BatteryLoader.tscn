@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdag2nqoj6q61"]
+
+[ext_resource type="Script" uid="uid://btur2lgw6uhxc" path="res://components/battery_loader/battery_loader.gd" id="1_d3chp"]
+
+[node name="BatteryLoader" type="Area2D"]
+collision_layer = 32768
+collision_mask = 2
+script = ExtResource("1_d3chp")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

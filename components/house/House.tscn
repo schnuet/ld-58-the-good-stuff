@@ -1,23 +1,108 @@
-[gd_scene load_steps=4 format=3 uid="uid://bx8uwa5pkxxwx"]
+[gd_scene load_steps=15 format=3 uid="uid://bx8uwa5pkxxwx"]
 
 [ext_resource type="Script" uid="uid://f85jpy5bb5ne" path="res://components/house/house.gd" id="1_4pyhr"]
+[ext_resource type="Texture2D" uid="uid://d1ldlr0phef8m" path="res://components/house/sprites/house-1-dunkel.png" id="2_5qg6p"]
+[ext_resource type="Texture2D" uid="uid://sp28wxpebbqf" path="res://components/house/sprites/house-1-hell.png" id="3_4ct34"]
+[ext_resource type="Texture2D" uid="uid://mo8xytnw6yni" path="res://components/house/sprites/house-2-dunkel.png" id="4_ffrhy"]
+[ext_resource type="Texture2D" uid="uid://bjh64e0amc5g2" path="res://components/house/sprites/house-2-hell.png" id="5_7pgq6"]
+[ext_resource type="Texture2D" uid="uid://dfaqldt7l28v5" path="res://components/house/sprites/house-3-dunkel.png" id="6_3wp80"]
+[ext_resource type="Texture2D" uid="uid://bk16su0icce2w" path="res://components/house/sprites/house-3-hell.png" id="7_kr3hm"]
+[ext_resource type="Texture2D" uid="uid://mgg3rh5d2a1x" path="res://components/house/sprites/house-4-dunkel.png" id="8_r7d8v"]
+[ext_resource type="Texture2D" uid="uid://dk3sbq0s2m1hy" path="res://components/house/sprites/house-4-hell.png" id="9_nlxxb"]
+[ext_resource type="Texture2D" uid="uid://cefermbp3pb8s" path="res://components/house/sprites/house-good-stuff-1-dunkel.png" id="10_3wp80"]
+[ext_resource type="Texture2D" uid="uid://c8rc3oht3wdl2" path="res://components/house/sprites/house-good-stuff-1-hell.png" id="11_kr3hm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0onay"]
-radius = 71.69
+radius = 102.53
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jhj1n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5qg6p")
+}],
+"loop": true,
+"name": &"1_dunkel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4ct34")
+}],
+"loop": true,
+"name": &"1_hell",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ffrhy")
+}],
+"loop": true,
+"name": &"2_dunkel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_7pgq6")
+}],
+"loop": true,
+"name": &"2_hell",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_3wp80")
+}],
+"loop": true,
+"name": &"3_dunkel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_kr3hm")
+}],
+"loop": true,
+"name": &"3_hell",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_r7d8v")
+}],
+"loop": true,
+"name": &"4_dunkel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_nlxxb")
+}],
+"loop": true,
+"name": &"4_hell",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_3wp80")
+}],
+"loop": true,
+"name": &"good-stuff-1_dunkel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_kr3hm")
+}],
+"loop": true,
+"name": &"good-stuff-1_hell",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pyhr"]
-size = Vector2(565, 97)
+size = Vector2(401, 116)
 
-[node name="House" type="Node2D"]
+[node name="House" type="Node2D" groups=["house"]]
 script = ExtResource("1_4pyhr")
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.37811363, 0.72979957, 0.808168, 1)
-polygon = PackedVector2Array(-164, -1, -176, -310, 449, -329, 401, 0)
-
-[node name="Polygon2D2" type="Polygon2D" parent="."]
-color = Color(0.9766666, 1, 0.65, 1)
-polygon = PackedVector2Array(-79, 0, -95, -208, 68, -213, 74, 5)
 
 [node name="InteractionArea" type="Area2D" parent="."]
 collision_layer = 4
@@ -26,10 +111,16 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_0onay")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-26, -287.73126)
+scale = Vector2(0.1930991, 0.19309908)
+sprite_frames = SubResource("SpriteFrames_jhj1n")
+animation = &"good-stuff-1_dunkel"
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(118.5, -49.5)
+position = Vector2(-75.5, -55)
 shape = SubResource("RectangleShape2D_4pyhr")
 
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]

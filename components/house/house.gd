@@ -4,6 +4,16 @@ var player_inside = false;
 var sweet_type = "standard";
 var empty = false;
 
+var variant: String = "1";
+@onready var sweets_amount = randi_range(5, 10);
+
+@onready var animated_sprite = $AnimatedSprite2D;
+@onready var sweets_bag = get_tree().get_first_node_in_group("sweets_bag");
+
+func _ready() -> void:
+	variant = str(randi_range(1, 4));
+	animated_sprite.animation = str(variant) + "_hell";
+
 func _process(delta: float) -> void:
 	if not player_inside:
 		return
@@ -22,26 +32,13 @@ func give_sweet():
 		print("player has no space");
 		return false;
 	
-	var id = get_instance_id();
-	var collected_houses_count = Globals.collected_houses.size();
-	if collected_houses_count == 0:
-		sweet_type = "standard";
-	elif collected_houses_count % 30 == 0:
-		sweet_type = "chocolate";
-	elif collected_houses_count % 20 == 0:
-		sweet_type = "lolly";
-	elif collected_houses_count % 10 == 0:
-		sweet_type = "cookies";
-		
-	print("sweet type ", sweet_type);
-	
-	Globals.collected_houses.append(id)
-	Globals.collected_houses_in_run.append(id);
+	Globals.collected_houses.append(self)
+	Globals.collected_houses_in_run.append(self);
 	
 	var player = get_tree().get_first_node_in_group("player");
 	
 	if sweet_type == "standard":
-		player.add_sweet("standard", randi_range(5, 10));
+		player.add_sweet("standard", sweets_amount);
 	elif sweet_type == "chocolate":
 		player.add_sweet("chocolate", 1);
 	elif sweet_type == "lolly":
@@ -56,11 +53,26 @@ func give_sweet():
 func check_if_player_has_space():
 	# Check if the player has space in their bag.
 	# If not, play a short decline animation.
+	if sweets_bag.sweets >= sweets_bag.max_sweets:
+		# Play decline animation
+		# TODO
+		return false;
 	return true;
 	
 func close_house():
-	print("close house")
+	print("close house");
+	animated_sprite.animation = str(variant) + "_dunkel";
 	empty = true;
+
+func reopen():
+	print("reopen house");
+	sweets_amount = 10;
+	animated_sprite.animation = str(variant) + "_hell";
+	empty = false;
+
+func make_special():
+	variant = "good-stuff-" + str(1);
+	animated_sprite.animation = str(variant) + "_hell";
 
 func _on_interaction_area_area_entered(area: Area2D) -> void:
 	player_inside = true;

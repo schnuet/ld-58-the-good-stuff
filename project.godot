@@ -40,6 +40,10 @@ player=""
 sweets_bag=""
 camera=""
 sweets_bar=""
+battery_lamp=""
+effects_layer=""
+battery_light=""
+house=""
 
 [godot_helper_pack_plugin]
 

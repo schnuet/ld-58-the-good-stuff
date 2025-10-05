@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		return;
 
 	# position itself on the edge of the camera area, indicating the home direction
-	position = Vector2.ZERO;
+	position = Vector2(640, 360);
 	var dir_to_home = (home_center - player.global_position).normalized();
 	var half_screen = screen_size * 0.5;
 	position += Vector2(dir_to_home.x * half_screen.x, dir_to_home.y * half_screen.y) * 0.9;

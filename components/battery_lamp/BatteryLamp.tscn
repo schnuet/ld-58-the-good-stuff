@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0544lrqud78c"]
+
+[ext_resource type="Script" uid="uid://dpbmc5qmtj5y0" path="res://components/battery_lamp/battery_lamp.gd" id="1_vhf13"]
+
+[node name="BatteryLamp" type="Control" groups=["battery_lamp"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vhf13")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 209.0
+offset_bottom = 27.0

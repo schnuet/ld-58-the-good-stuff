@@ -13,7 +13,6 @@ var secured_main_sweets = {
 	"cookies": false,
 	"lolly": false
 };
-var collected_main_sweets = [];
 
 func add_sweet(sweet):
 	sweets.append(sweet);

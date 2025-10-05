@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://dcssvjg6sf8d2" path="res://components/home_indicator/home_indicator.gd" id="1_4p1f3"]
 
 [node name="HomeIndicator" type="Node2D"]
+light_mask = 0
 script = ExtResource("1_4p1f3")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+light_mask = 0
 rotation = 4.716306
 polygon = PackedVector2Array(-43, -4, -11, -3, -11, -8, 0, 0, -11, 8, -11, 3, -43, 4)

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cx67pu1ggetxv" path="res://components/sweets_bag/sweets_bag.gd" id="1_h4wdo"]
 
 [node name="SweetsBag" type="Control" groups=["sweets_bag"]]
+light_mask = 0
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 3
 anchors_preset = 15

@@ -1,0 +1,123 @@
+[gd_scene load_steps=25 format=3 uid="uid://18ek4mwfjisr"]
+
+[ext_resource type="Script" uid="uid://b4s6b7uejes5p" path="res://components/child/child.gd" id="1_jfw10"]
+[ext_resource type="Texture2D" uid="uid://cxvbmjhairiin" path="res://components/child/anims/idle/Paula Pumpkin_00000.png" id="2_kw0xn"]
+[ext_resource type="Texture2D" uid="uid://dskwrjx85qt40" path="res://components/child/anims/idle/Paula Pumpkin_00001.png" id="3_mmq8v"]
+[ext_resource type="Texture2D" uid="uid://pcowqxkk0av7" path="res://components/child/anims/idle/Paula Pumpkin_00002.png" id="4_lr5lw"]
+[ext_resource type="Texture2D" uid="uid://t2cnjnoayi32" path="res://components/child/anims/idle/Paula Pumpkin_00003.png" id="5_mfi74"]
+[ext_resource type="Texture2D" uid="uid://o240rklb2q8x" path="res://components/child/anims/idle/Paula Pumpkin_00004.png" id="6_7bnb5"]
+[ext_resource type="Texture2D" uid="uid://ciqf7g1hnpnvm" path="res://components/child/anims/idle/Paula Pumpkin_00005.png" id="7_l0ver"]
+[ext_resource type="Texture2D" uid="uid://2w42th00ne2a" path="res://components/child/anims/idle/Paula Pumpkin_00006.png" id="8_50g6c"]
+[ext_resource type="Texture2D" uid="uid://cbefmst8a4cs1" path="res://components/child/anims/idle/Paula Pumpkin_00007.png" id="9_j5am1"]
+[ext_resource type="Texture2D" uid="uid://5bx2yik1qmwq" path="res://components/child/anims/idle/Paula Pumpkin_00008.png" id="10_clw14"]
+[ext_resource type="Texture2D" uid="uid://cup1wydt3jtaq" path="res://components/child/anims/idle/Paula Pumpkin_00009.png" id="11_etok2"]
+[ext_resource type="Texture2D" uid="uid://bi7t3i5hgjowc" path="res://components/child/anims/idle/Paula Pumpkin_00010.png" id="12_mrp6r"]
+[ext_resource type="Texture2D" uid="uid://ck3y6tcedboaf" path="res://components/child/anims/idle/Paula Pumpkin_00011.png" id="13_i4agn"]
+[ext_resource type="Texture2D" uid="uid://d0jn3jx25wy0e" path="res://components/child/anims/idle/Paula Pumpkin_00012.png" id="14_efp20"]
+[ext_resource type="Texture2D" uid="uid://d1oth533d2074" path="res://components/child/anims/idle/Paula Pumpkin_00013.png" id="15_gnm8u"]
+[ext_resource type="Texture2D" uid="uid://cxy6g2bvppbt2" path="res://components/child/anims/idle/Paula Pumpkin_00014.png" id="16_juqfk"]
+[ext_resource type="Texture2D" uid="uid://cnl8xsogkp32g" path="res://components/child/anims/idle/Paula Pumpkin_00015.png" id="17_kvgh7"]
+[ext_resource type="Texture2D" uid="uid://bmn6jram6bw3o" path="res://components/child/anims/idle/Paula Pumpkin_00016.png" id="18_v2xdb"]
+[ext_resource type="Texture2D" uid="uid://b0ory3f3bnexv" path="res://components/child/anims/idle/Paula Pumpkin_00017.png" id="19_osuxs"]
+[ext_resource type="Texture2D" uid="uid://bxwo0v1ws6gra" path="res://components/child/anims/idle/Paula Pumpkin_00018.png" id="20_j2p14"]
+[ext_resource type="Texture2D" uid="uid://wuk3rwtx0aa8" path="res://components/child/anims/idle/Paula Pumpkin_00019.png" id="21_i0ck7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw0xn"]
+size = Vector2(222, 72)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fmrqw"]
+radius = 112.55
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfw10"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kw0xn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mmq8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lr5lw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mfi74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7bnb5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l0ver")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_50g6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_j5am1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_clw14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_etok2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mrp6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_i4agn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_efp20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_gnm8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_juqfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_kvgh7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_v2xdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_osuxs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_j2p14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_i0ck7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
+[node name="Child" type="Node2D"]
+script = ExtResource("1_jfw10")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(5, 26)
+shape = SubResource("RectangleShape2D_kw0xn")
+debug_color = Color(0.9658908, 0, 0.4868644, 0.41960785)
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 46)
+shape = SubResource("CircleShape2D_fmrqw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -44)
+scale = Vector2(1.125, 1.125)
+sprite_frames = SubResource("SpriteFrames_jfw10")
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
