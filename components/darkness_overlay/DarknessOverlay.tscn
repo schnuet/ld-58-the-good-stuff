@@ -1,0 +1,141 @@
+[gd_scene load_steps=32 format=3 uid="uid://dcch08x4jo4e4"]
+
+[ext_resource type="Shader" uid="uid://bnv13q0tv1wyo" path="res://components/light/viewport_shader.gdshader" id="1_4rgtx"]
+[ext_resource type="Script" uid="uid://c6b3tuyeukyl3" path="res://components/darkness_overlay/darkness_overlay.gd" id="1_h6f62"]
+[ext_resource type="Texture2D" uid="uid://dm57i4533aq85" path="res://assets/effects/lichtkegel/Lichtkreis 2_00000.png" id="3_pwj1c"]
+[ext_resource type="Texture2D" uid="uid://bbd262a6cvmqj" path="res://assets/effects/lichtkegel/Lichtkreis 2_00001.png" id="4_sfw2p"]
+[ext_resource type="Texture2D" uid="uid://ceguxil0fjs2t" path="res://assets/effects/lichtkegel/Lichtkreis 2_00002.png" id="5_qfnvw"]
+[ext_resource type="Texture2D" uid="uid://bnmd6rd0pukn7" path="res://assets/effects/lichtkegel/Lichtkreis 2_00003.png" id="6_fgud3"]
+[ext_resource type="Texture2D" uid="uid://dmvwyqjbvetia" path="res://assets/effects/lichtkegel/Lichtkreis 2_00004.png" id="7_a8pxq"]
+[ext_resource type="Texture2D" uid="uid://bnj6sqihfy6ae" path="res://assets/effects/lichtkegel/Lichtkreis 2_00005.png" id="8_fmt5w"]
+[ext_resource type="Texture2D" uid="uid://damxbwjk2obng" path="res://assets/effects/lichtkegel/Lichtkreis 2_00006.png" id="9_3pj76"]
+[ext_resource type="Texture2D" uid="uid://deiouycsank8j" path="res://assets/effects/lichtkegel/Lichtkreis 2_00007.png" id="10_pouri"]
+[ext_resource type="Texture2D" uid="uid://c6avyi6kwvpjf" path="res://assets/effects/lichtkegel/Lichtkreis 2_00008.png" id="11_wpmcn"]
+[ext_resource type="Texture2D" uid="uid://d2igiy42l7umj" path="res://assets/effects/lichtkegel/Lichtkreis 2_00009.png" id="12_50rly"]
+[ext_resource type="Texture2D" uid="uid://b6072fl87h01l" path="res://assets/effects/lichtkegel/Lichtkreis 2_00010.png" id="13_3e4kq"]
+[ext_resource type="Texture2D" uid="uid://bytt5w70x6hub" path="res://assets/effects/lichtkegel/Lichtkreis 2_00011.png" id="14_dqmpt"]
+[ext_resource type="Texture2D" uid="uid://2jb8x2og0ttm" path="res://assets/effects/lichtkegel/Lichtkreis 2_00012.png" id="15_hlr7d"]
+[ext_resource type="Texture2D" uid="uid://bmmohdpydrw8x" path="res://assets/effects/lichtkegel/Lichtkreis 2_00013.png" id="16_g461i"]
+[ext_resource type="Texture2D" uid="uid://dclbxb4acg46j" path="res://assets/effects/lichtkegel/Lichtkreis 2_00014.png" id="17_4p11s"]
+[ext_resource type="Texture2D" uid="uid://cc6b03qsruqpa" path="res://assets/effects/lichtkegel/Lichtkreis 2_00015.png" id="18_wqwfm"]
+[ext_resource type="Texture2D" uid="uid://bmwwsswl7sph1" path="res://assets/effects/lichtkegel/Lichtkreis 2_00016.png" id="19_sgkfm"]
+[ext_resource type="Texture2D" uid="uid://mus6cvlpy1bh" path="res://assets/effects/lichtkegel/Lichtkreis 2_00017.png" id="20_6hd7o"]
+[ext_resource type="Texture2D" uid="uid://c4nmqjtt24qos" path="res://assets/effects/lichtkegel/Lichtkreis 2_00018.png" id="21_61b1l"]
+[ext_resource type="Texture2D" uid="uid://dk4qja5io2byi" path="res://assets/effects/lichtkegel/Lichtkreis 2_00019.png" id="22_i7aso"]
+[ext_resource type="Texture2D" uid="uid://dcet3pouypqs3" path="res://assets/effects/lichtkegel/Lichtkreis 2_00020.png" id="23_ma8v1"]
+[ext_resource type="Texture2D" uid="uid://bq5gq5c5ql7pc" path="res://assets/effects/lichtkegel/Lichtkreis 2_00021.png" id="24_mbj5m"]
+[ext_resource type="Texture2D" uid="uid://67gey1rhbs1t" path="res://assets/effects/lichtkegel/Lichtkreis 2_00022.png" id="25_ey4av"]
+[ext_resource type="Texture2D" uid="uid://c3tbnv07t4mcg" path="res://assets/effects/lichtkegel/Lichtkreis 2_00023.png" id="26_jmc1m"]
+[ext_resource type="Texture2D" uid="uid://bj7nxy7enft6" path="res://assets/effects/lichtkegel/Lichtkreis 2_00024.png" id="27_ok1m7"]
+[ext_resource type="Texture2D" uid="uid://c5aubmxgn3cfn" path="res://assets/effects/lichtkegel/Lichtkreis 2_00025.png" id="28_ovh84"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4rgtx"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w847s"]
+resource_local_to_scene = true
+shader = ExtResource("1_4rgtx")
+shader_parameter/main_texture = SubResource("ViewportTexture_4rgtx")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qoqla"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pwj1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sfw2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qfnvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fgud3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a8pxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fmt5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3pj76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pouri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wpmcn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_50rly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3e4kq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_dqmpt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hlr7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_g461i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4p11s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_wqwfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_sgkfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_6hd7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_61b1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_i7aso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ma8v1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_mbj5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ey4av")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_jmc1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ok1m7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ovh84")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
+[node name="DarknessOverlay" type="ColorRect"]
+material = SubResource("ShaderMaterial_w847s")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h6f62")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1920, 1080)
+
+[node name="OffsetNode" type="Node2D" parent="SubViewport"]
+
+[node name="PlayerShine" type="AnimatedSprite2D" parent="SubViewport/OffsetNode"]
+sprite_frames = SubResource("SpriteFrames_qoqla")

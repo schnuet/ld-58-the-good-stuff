@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://dob3oxs7ln2df"]
+[gd_scene load_steps=41 format=3 uid="uid://dob3oxs7ln2df"]
 
 [ext_resource type="Script" uid="uid://dbenuccxt1n84" path="res://scenes/02_game/SceneGame.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dwe2urxq3srxn" path="res://components/player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://bg3blqa5y2h3d" path="res://components/home_indicator/HomeIndicator.tscn" id="2_7yoka"]
 [ext_resource type="PackedScene" uid="uid://bdag2nqoj6q61" path="res://components/battery_loader/BatteryLoader.tscn" id="2_8v7vt"]
 [ext_resource type="AudioStream" uid="uid://nmc6a6wq885s" path="res://assets/music/Looking for the Good Stuff - Ambient Chills.mp3" id="2_d6txb"]
+[ext_resource type="PackedScene" uid="uid://du7mxbwb7rrjg" path="res://components/ambience_manager/AmbienceManager.tscn" id="2_idojj"]
 [ext_resource type="Texture2D" uid="uid://d0m4bbfe8dcqg" path="res://assets/ambience/Tileset/tileset-boden-hub.png" id="3_fwb00"]
 [ext_resource type="Texture2D" uid="uid://ybrrmn3mloqg" path="res://assets/ambience/Tileset/spiele-hintergrund-2.png" id="3_vdcri"]
 [ext_resource type="PackedScene" uid="uid://bx8uwa5pkxxwx" path="res://components/house/House.tscn" id="4_8mxrn"]
@@ -22,14 +23,28 @@
 [ext_resource type="Texture2D" uid="uid://cel2hwxsxcdgy" path="res://assets/ambience/Tileset/tileset-boden-05.png" id="9_q0p1d"]
 [ext_resource type="Texture2D" uid="uid://dhjgsupocxquy" path="res://assets/ambience/Tileset/tileset-boden-06.png" id="10_lqxoc"]
 [ext_resource type="PackedScene" uid="uid://c35vsi6j4jfh6" path="res://components/guy_bag/GuyBag.tscn" id="12_4ibey"]
-[ext_resource type="Texture2D" uid="uid://5io52dat62jh" path="res://assets/light/light.png" id="12_fwb00"]
+[ext_resource type="Texture2D" uid="uid://bosm7e73ojt7w" path="res://assets/ambience/Tileset/gras-untergrund.png" id="12_7ggpw"]
 [ext_resource type="PackedScene" uid="uid://djfhd4urcvgwm" path="res://components/tree/Tree.tscn" id="12_su1yx"]
 [ext_resource type="PackedScene" uid="uid://biaao4gj3i4f6" path="res://components/guy_light/GuyLight.tscn" id="13_in23y"]
+[ext_resource type="Texture2D" uid="uid://dy4sa7knchigo" path="res://assets/ambience/Tileset/steine-untergrund.png" id="13_w10q6"]
 [ext_resource type="PackedScene" uid="uid://dvw0r0cdaacem" path="res://components/guy_speed/GuySpeed.tscn" id="14_d6txb"]
 [ext_resource type="Texture2D" uid="uid://b4vyypr7pld7f" path="res://assets/effects/rahmen_transparent.png" id="15_o6c3g"]
+[ext_resource type="PackedScene" uid="uid://hgy0grbogv5m" path="res://components/owl_fly/OwlFlying.tscn" id="21_vdcri"]
+[ext_resource type="PackedScene" uid="uid://baxkyfk30adcg" path="res://components/deko/Pumpkin2.tscn" id="27_p1tb4"]
+[ext_resource type="PackedScene" uid="uid://dcud3o8j8o24o" path="res://components/deko/Bank.tscn" id="29_q0p1d"]
+[ext_resource type="PackedScene" uid="uid://c8fiwqp3jmp4n" path="res://components/deko/Busch1.tscn" id="30_lqxoc"]
+[ext_resource type="PackedScene" uid="uid://cpd5gd1wtixay" path="res://components/deko/Busch3.tscn" id="31_j711m"]
+[ext_resource type="PackedScene" uid="uid://b2qu7fkyr1d46" path="res://components/deko/Laterne.tscn" id="31_w10q6"]
+[ext_resource type="PackedScene" uid="uid://mmdjlfggkc0q" path="res://components/deko/Busch2.tscn" id="32_lllvj"]
+[ext_resource type="PackedScene" uid="uid://di4ba1t0wlwmb" path="res://components/deko/Pumpkin1.tscn" id="33_8e0bd"]
+[ext_resource type="PackedScene" uid="uid://fqfqvvommvi2" path="res://components/deko/Mülleimer.tscn" id="33_lqxoc"]
+[ext_resource type="PackedScene" uid="uid://hbjxcm1cocwe" path="res://components/deko/Zaun.tscn" id="34_lllvj"]
+[ext_resource type="PackedScene" uid="uid://64qtrai0mol4" path="res://components/deko/Busch4.tscn" id="35_1diih"]
 
 [node name="GameScene" type="Node2D" groups=["scene_manager_entity_nodes"]]
 script = ExtResource("1")
+
+[node name="AmbienceManager" parent="." instance=ExtResource("2_idojj")]
 
 [node name="Ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_d6txb")
@@ -47,6 +62,7 @@ offset_right = 11596.0
 offset_bottom = 8634.0
 texture = ExtResource("3_vdcri")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Ringe" type="Node2D" parent="."]
 position = Vector2(640, 360)
@@ -77,8 +93,17 @@ metadata/_edit_lock_ = true
 position = Vector2(-2110, 1235)
 texture = ExtResource("4_idojj")
 
+[node name="TilesetBodenHub2" type="Sprite2D" parent="Floor"]
+visible = false
+position = Vector2(46, 248)
+texture = ExtResource("3_fwb00")
+
+[node name="TilesetBodenHub3" type="Sprite2D" parent="Floor"]
+position = Vector2(969, 334.5)
+texture = ExtResource("3_fwb00")
+
 [node name="TilesetBodenHub" type="Sprite2D" parent="Floor"]
-position = Vector2(687, 304)
+position = Vector2(351, 269.5)
 texture = ExtResource("3_fwb00")
 
 [node name="TilesetBoden02" type="Sprite2D" parent="Floor"]
@@ -109,13 +134,113 @@ texture = ExtResource("8_upewu")
 position = Vector2(5557.5, 3339.5)
 texture = ExtResource("10_lqxoc")
 
-[node name="TilesetBodenHub2" type="Sprite2D" parent="Floor"]
-position = Vector2(46, 248)
-texture = ExtResource("3_fwb00")
+[node name="GrasUntergrund" type="Sprite2D" parent="Floor"]
+position = Vector2(-1484, 1541)
+texture = ExtResource("12_7ggpw")
 
-[node name="TilesetBodenHub3" type="Sprite2D" parent="Floor"]
-position = Vector2(1300, 365)
-texture = ExtResource("3_fwb00")
+[node name="GrasUntergrund2" type="Sprite2D" parent="Floor"]
+position = Vector2(-2716, 1862)
+texture = ExtResource("12_7ggpw")
+
+[node name="GrasUntergrund3" type="Sprite2D" parent="Floor"]
+position = Vector2(-3276, 2120)
+texture = ExtResource("12_7ggpw")
+
+[node name="GrasUntergrund4" type="Sprite2D" parent="Floor"]
+position = Vector2(-3983, 2066)
+texture = ExtResource("12_7ggpw")
+
+[node name="GrasUntergrund5" type="Sprite2D" parent="Floor"]
+position = Vector2(-4169, 1790)
+texture = ExtResource("12_7ggpw")
+
+[node name="GrasUntergrund6" type="Sprite2D" parent="Floor"]
+position = Vector2(-4877, 996)
+texture = ExtResource("12_7ggpw")
+
+[node name="GrasUntergrund7" type="Sprite2D" parent="Floor"]
+position = Vector2(-4210, 718)
+texture = ExtResource("12_7ggpw")
+
+[node name="GrasUntergrund8" type="Sprite2D" parent="Floor"]
+position = Vector2(4825, -1706)
+texture = ExtResource("12_7ggpw")
+
+[node name="GrasUntergrund9" type="Sprite2D" parent="Floor"]
+position = Vector2(4232, -1378)
+texture = ExtResource("12_7ggpw")
+
+[node name="GrasUntergrund10" type="Sprite2D" parent="Floor"]
+position = Vector2(5314, -1608)
+texture = ExtResource("12_7ggpw")
+
+[node name="GrasUntergrund11" type="Sprite2D" parent="Floor"]
+position = Vector2(4717, 1407)
+texture = ExtResource("12_7ggpw")
+
+[node name="SteineUntergrund" type="Sprite2D" parent="Floor"]
+position = Vector2(5457, 3053)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund2" type="Sprite2D" parent="Floor"]
+position = Vector2(4570, 3809)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund3" type="Sprite2D" parent="Floor"]
+position = Vector2(4298, 4530)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund4" type="Sprite2D" parent="Floor"]
+position = Vector2(3170, 4719)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund5" type="Sprite2D" parent="Floor"]
+position = Vector2(1711, 6045)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund6" type="Sprite2D" parent="Floor"]
+position = Vector2(2040, 5277)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund7" type="Sprite2D" parent="Floor"]
+position = Vector2(776, 5729)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund8" type="Sprite2D" parent="Floor"]
+position = Vector2(-1624, 5520)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund9" type="Sprite2D" parent="Floor"]
+position = Vector2(-993, 5106)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund10" type="Sprite2D" parent="Floor"]
+position = Vector2(-183, 5616)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund11" type="Sprite2D" parent="Floor"]
+position = Vector2(-3365, 3618)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund12" type="Sprite2D" parent="Floor"]
+position = Vector2(-2961, 4271)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund13" type="Sprite2D" parent="Floor"]
+position = Vector2(-5046, 2281)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund14" type="Sprite2D" parent="Floor"]
+position = Vector2(-4457, 1914)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund15" type="Sprite2D" parent="Floor"]
+position = Vector2(-3768, 3070)
+texture = ExtResource("13_w10q6")
+
+[node name="SteineUntergrund16" type="Sprite2D" parent="Floor"]
+position = Vector2(-3768, 3070)
+texture = ExtResource("13_w10q6")
 
 [node name="BatteryLoader" parent="." instance=ExtResource("2_8v7vt")]
 visible = false
@@ -130,13 +255,13 @@ position = Vector2(640, 359)
 y_sort_enabled = true
 
 [node name="Player" parent="Objects" groups=["player"] instance=ExtResource("2")]
-position = Vector2(635, 495)
+position = Vector2(660, 592)
 
 [node name="RecordPlayer" parent="Objects" instance=ExtResource("6_o6c3g")]
-position = Vector2(889, 356)
+position = Vector2(850, 362)
 
 [node name="Child" parent="Objects" instance=ExtResource("6_23a4a")]
-position = Vector2(718, 319)
+position = Vector2(663, 327)
 
 [node name="GuyBag" parent="Objects" instance=ExtResource("12_4ibey")]
 position = Vector2(1143, 377)
@@ -150,6 +275,7 @@ position = Vector2(351, 702)
 [node name="Trees" type="Node2D" parent="Objects"]
 y_sort_enabled = true
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Tree" parent="Objects/Trees" instance=ExtResource("12_su1yx")]
 position = Vector2(-657, -59)
@@ -1503,7 +1629,6 @@ position = Vector2(497, -5057)
 
 [node name="Houses" type="Node2D" parent="Objects"]
 y_sort_enabled = true
-metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="House" parent="Objects/Houses" instance=ExtResource("4_8mxrn")]
@@ -1522,7 +1647,7 @@ position = Vector2(4286, -1619)
 position = Vector2(-741, 1178)
 
 [node name="House6" parent="Objects/Houses" instance=ExtResource("4_8mxrn")]
-position = Vector2(-467, 2641)
+position = Vector2(-356, 2384)
 
 [node name="House7" parent="Objects/Houses" instance=ExtResource("4_8mxrn")]
 position = Vector2(1228, 2678)
@@ -1573,7 +1698,7 @@ position = Vector2(6523, 365)
 position = Vector2(272, 6688)
 
 [node name="House24" parent="Objects/Houses" instance=ExtResource("4_8mxrn")]
-position = Vector2(1748, -5136)
+position = Vector2(1847, -5372)
 
 [node name="House20" parent="Objects/Houses" instance=ExtResource("4_8mxrn")]
 position = Vector2(-2060, -1695)
@@ -1591,7 +1716,7 @@ position = Vector2(-645, -1269)
 position = Vector2(-3328, 5155)
 
 [node name="House29" parent="Objects/Houses" instance=ExtResource("4_8mxrn")]
-position = Vector2(4756, 5428)
+position = Vector2(4750, 5328)
 
 [node name="House30" parent="Objects/Houses" instance=ExtResource("4_8mxrn")]
 position = Vector2(-1127, -121)
@@ -1609,7 +1734,7 @@ position = Vector2(-4669, 3239)
 position = Vector2(2600, 6815)
 
 [node name="House35" parent="Objects/Houses" instance=ExtResource("4_8mxrn")]
-position = Vector2(1253, 3842)
+position = Vector2(1696, 3775)
 
 [node name="House36" parent="Objects/Houses" instance=ExtResource("4_8mxrn")]
 position = Vector2(2345, -3613)
@@ -1623,11 +1748,275 @@ position = Vector2(-140, -5842)
 [node name="House39" parent="Objects/Houses" instance=ExtResource("4_8mxrn")]
 position = Vector2(5062, -4124)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(353, 193)
-blend_mode = 2
-texture = ExtResource("12_fwb00")
+[node name="Busch3" parent="Objects/Houses" instance=ExtResource("31_j711m")]
+position = Vector2(1574, -5514)
+
+[node name="Busch2" parent="Objects/Houses" instance=ExtResource("32_lllvj")]
+position = Vector2(2285, -5548)
+
+[node name="Busch4" parent="Objects/Houses" instance=ExtResource("32_lllvj")]
+position = Vector2(-3655, -4063)
+
+[node name="Busch5" parent="Objects/Houses" instance=ExtResource("35_1diih")]
+position = Vector2(-1517, -3243)
+
+[node name="Busch6" parent="Objects/Houses" instance=ExtResource("35_1diih")]
+position = Vector2(-1434, -3135)
+scale = Vector2(-1, 1)
+
+[node name="Busch7" parent="Objects/Houses" instance=ExtResource("32_lllvj")]
+position = Vector2(-666, -3091)
+
+[node name="Pumpkin2" parent="Objects/Houses" instance=ExtResource("27_p1tb4")]
+position = Vector2(-1315, -70)
+
+[node name="Deko" type="Node2D" parent="Objects"]
+y_sort_enabled = true
+
+[node name="Bank" parent="Objects/Deko" instance=ExtResource("29_q0p1d")]
+position = Vector2(-2386, -2354)
+
+[node name="Busch1" parent="Objects/Deko" instance=ExtResource("30_lqxoc")]
+position = Vector2(-2123, -2926)
+
+[node name="Busch3" parent="Objects/Deko" instance=ExtResource("31_j711m")]
+position = Vector2(-2479, -2493)
+
+[node name="Busch2" parent="Objects/Deko" instance=ExtResource("32_lllvj")]
+position = Vector2(-2696, -2386)
+
+[node name="Mülleimer" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(2964, -31)
+
+[node name="Zaun" parent="Objects/Deko" instance=ExtResource("34_lllvj")]
+position = Vector2(4628, 1249)
+
+[node name="Zaun2" parent="Objects/Deko" instance=ExtResource("34_lllvj")]
+position = Vector2(5015, 1249)
+
+[node name="Busch4" parent="Objects/Deko" instance=ExtResource("30_lqxoc")]
+position = Vector2(5168, 1312)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+
+[node name="Busch5" parent="Objects/Deko" instance=ExtResource("30_lqxoc")]
+position = Vector2(3941, 1634)
+
+[node name="Zaun3" parent="Objects/Deko" instance=ExtResource("34_lllvj")]
+position = Vector2(4114, 1685)
+
+[node name="Zaun4" parent="Objects/Deko" instance=ExtResource("34_lllvj")]
+position = Vector2(4905, 1681)
+
+[node name="Mülleimer3" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(2008, -3708)
+
+[node name="Mülleimer4" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(1904, -3661)
+
+[node name="Mülleimer5" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(5288, -4084)
+
+[node name="Mülleimer6" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(88, -6172)
+
+[node name="Mülleimer7" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(156, -6109)
+
+[node name="Mülleimer8" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(-1390, -5917)
+
+[node name="Mülleimer9" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(-2902, -4070)
+
+[node name="Mülleimer10" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(6792, 595)
+
+[node name="Mülleimer11" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(-165, 6128)
+
+[node name="Mülleimer12" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(3123, 5485)
+
+[node name="Mülleimer13" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(-2406, 3693)
+
+[node name="Mülleimer14" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(-4400, 2977)
+
+[node name="Mülleimer15" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(-5827, 816)
+
+[node name="Mülleimer16" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(-1361, -272)
+
+[node name="Mülleimer2" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
+position = Vector2(2020, -3631)
+
+[node name="Zaun5" parent="Objects/Deko" instance=ExtResource("34_lllvj")]
+position = Vector2(3170, 6189)
+
+[node name="Zaun6" parent="Objects/Deko" instance=ExtResource("34_lllvj")]
+position = Vector2(2786, 6185)
+
+[node name="Zaun7" parent="Objects/Deko" instance=ExtResource("34_lllvj")]
+position = Vector2(2790, 7135)
+
+[node name="Zaun8" parent="Objects/Deko" instance=ExtResource("34_lllvj")]
+position = Vector2(2425, 7135)
+
+[node name="Zaun9" parent="Objects/Deko" instance=ExtResource("34_lllvj")]
+position = Vector2(-304, 5129)
+
+[node name="Zaun10" parent="Objects/Deko" instance=ExtResource("34_lllvj")]
+position = Vector2(4685, -4544)
+
+[node name="Bank2" parent="Objects/Deko" instance=ExtResource("29_q0p1d")]
+position = Vector2(4055, -4366)
+
+[node name="Busch6" parent="Objects/Deko" instance=ExtResource("30_lqxoc")]
+position = Vector2(4286, -4567)
+
+[node name="Busch7" parent="Objects/Deko" instance=ExtResource("35_1diih")]
+position = Vector2(5505, -3580)
+
+[node name="Busch8" parent="Objects/Deko" instance=ExtResource("32_lllvj")]
+position = Vector2(5794, -4084)
+
+[node name="Busch9" parent="Objects/Deko" instance=ExtResource("30_lqxoc")]
+position = Vector2(-696, -3300)
+
+[node name="Busch10" parent="Objects/Deko" instance=ExtResource("31_j711m")]
+position = Vector2(-560, -3212)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+
+[node name="Busch11" parent="Objects/Deko" instance=ExtResource("31_j711m")]
+position = Vector2(-1413, -3317)
+
+[node name="Bank3" parent="Objects/Deko" instance=ExtResource("29_q0p1d")]
+position = Vector2(-3669, -3901)
+
+[node name="Busch12" parent="Objects/Deko" instance=ExtResource("32_lllvj")]
+position = Vector2(1197, 3927)
+
+[node name="Laterne" parent="Objects/Deko" instance=ExtResource("31_w10q6")]
+position = Vector2(512, 375)
+
+[node name="Laterne2" parent="Objects/Deko" instance=ExtResource("31_w10q6")]
+position = Vector2(1041, 627)
+
+[node name="Busch13" parent="Objects/Deko" instance=ExtResource("31_j711m")]
+position = Vector2(1307, 4013)
+
+[node name="Pumpkin2" parent="Objects/Deko" instance=ExtResource("27_p1tb4")]
+position = Vector2(-3323, -756)
+
+[node name="Pumpkin3" parent="Objects/Deko" instance=ExtResource("27_p1tb4")]
+position = Vector2(1769, -2982)
+
+[node name="Busch14" parent="Objects/Deko" instance=ExtResource("30_lqxoc")]
+position = Vector2(1203, 651)
+
+[node name="Pumpkin1" parent="Objects/Deko" instance=ExtResource("33_8e0bd")]
+position = Vector2(1872, -2962)
+
+[node name="Pumpkin4" parent="Objects/Deko" instance=ExtResource("33_8e0bd")]
+position = Vector2(4742, -4090)
+
+[node name="Pumpkin5" parent="Objects/Deko" instance=ExtResource("33_8e0bd")]
+position = Vector2(-768, -6032)
+
+[node name="Pumpkin6" parent="Objects/Deko" instance=ExtResource("33_8e0bd")]
+position = Vector2(-4518, -2373)
+
+[node name="Busch15" parent="Objects/Deko" instance=ExtResource("31_j711m")]
+position = Vector2(-5052, -2355)
+
+[node name="Pumpkin7" parent="Objects/Deko" instance=ExtResource("27_p1tb4")]
+position = Vector2(-4931, 3289)
+
+[node name="Pumpkin8" parent="Objects/Deko" instance=ExtResource("27_p1tb4")]
+position = Vector2(-57, 5117)
+
+[node name="Pumpkin9" parent="Objects/Deko" instance=ExtResource("33_8e0bd")]
+position = Vector2(-624, 4864)
+
+[node name="Pumpkin10" parent="Objects/Deko" instance=ExtResource("33_8e0bd")]
+position = Vector2(47, 5094)
+scale = Vector2(-1, 1)
+
+[node name="Pumpkin11" parent="Objects/Deko" instance=ExtResource("27_p1tb4")]
+position = Vector2(-82, 4856)
+scale = Vector2(-1, 1)
+
+[node name="Pumpkin12" parent="Objects/Deko" instance=ExtResource("27_p1tb4")]
+position = Vector2(4927, 5406)
+
+[node name="Pumpkin13" parent="Objects/Deko" instance=ExtResource("33_8e0bd")]
+position = Vector2(2511, 5623)
+
+[node name="Pumpkin14" parent="Objects/Deko" instance=ExtResource("33_8e0bd")]
+position = Vector2(4987, 3225)
+
+[node name="Pumpkin15" parent="Objects/Deko" instance=ExtResource("27_p1tb4")]
+position = Vector2(5290, 3283)
+
+[node name="Laterne4" parent="Objects/Deko" instance=ExtResource("31_w10q6")]
+position = Vector2(6206, 3281)
+
+[node name="Pumpkin16" parent="Objects/Deko" instance=ExtResource("27_p1tb4")]
+position = Vector2(3995, 1341)
+
+[node name="Busch16" parent="Objects/Deko" instance=ExtResource("35_1diih")]
+position = Vector2(4624, -1698)
+
+[node name="Bank4" parent="Objects/Deko" instance=ExtResource("29_q0p1d")]
+position = Vector2(6737, -1223)
+scale = Vector2(-1, 1)
+
+[node name="Busch17" parent="Objects/Deko" instance=ExtResource("35_1diih")]
+position = Vector2(6886, -1158)
+
+[node name="Busch18" parent="Objects/Deko" instance=ExtResource("32_lllvj")]
+position = Vector2(6636, -1483)
+
+[node name="Busch19" parent="Objects/Deko" instance=ExtResource("31_j711m")]
+position = Vector2(2558, -3171)
+
+[node name="Busch20" parent="Objects/Deko" instance=ExtResource("35_1diih")]
+position = Vector2(1916, -3084)
+
+[node name="Bank5" parent="Objects/Deko" instance=ExtResource("29_q0p1d")]
+position = Vector2(128, 202)
+
+[node name="Sky" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="OwlFlying" parent="Sky" instance=ExtResource("21_vdcri")]
+position = Vector2(-11373, -5868)
+
+[node name="OwlFlying2" parent="Sky" instance=ExtResource("21_vdcri")]
+position = Vector2(-12064, -5678)
+
+[node name="OwlFlying3" parent="Sky" instance=ExtResource("21_vdcri")]
+position = Vector2(-11924, -5758)
+
+[node name="OwlFlying4" parent="Sky" instance=ExtResource("21_vdcri")]
+position = Vector2(-11195, -5674)
+
+[node name="OwlFlying5" parent="Sky" instance=ExtResource("21_vdcri")]
+position = Vector2(-11970, -5397)
+
+[node name="OwlFlying6" parent="Sky" instance=ExtResource("21_vdcri")]
+position = Vector2(-11616, -5332)
+
+[node name="OwlFlying7" parent="Sky" instance=ExtResource("21_vdcri")]
+position = Vector2(-11461, -5355)
+
+[node name="OwlFlying8" parent="Sky" instance=ExtResource("21_vdcri")]
+position = Vector2(-11757, -5366)
 
 [node name="BatteryLight" parent="." instance=ExtResource("7_v1t8k")]
 offset_left = 637.0

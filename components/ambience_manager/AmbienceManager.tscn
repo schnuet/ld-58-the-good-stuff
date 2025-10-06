@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://du7mxbwb7rrjg"]
+
+[ext_resource type="Script" uid="uid://dlh2svk4xtcko" path="res://components/ambience_manager/ambience_manager.gd" id="1_vcaln"]
+[ext_resource type="AudioStream" uid="uid://cigq8amg7ucdq" path="res://assets/sounds/Ambient/Wind/Wind-01.wav" id="2_fapwd"]
+[ext_resource type="AudioStream" uid="uid://dknrx2v1snicj" path="res://assets/sounds/Ambient/Wind/Wind-02.wav" id="3_7l6fr"]
+[ext_resource type="AudioStream" uid="uid://d3jujk10xtwwc" path="res://assets/sounds/Ambient/Bush/Bush-02.wav" id="4_w0imr"]
+[ext_resource type="AudioStream" uid="uid://bytikq0ca6stx" path="res://assets/sounds/Ambient/Bush/Bush-03.wav" id="5_15fwn"]
+[ext_resource type="AudioStream" uid="uid://b0d5x8f6daf64" path="res://assets/sounds/Ambient/Bush/Bush-04.wav" id="6_46isn"]
+[ext_resource type="AudioStream" uid="uid://c0sjugivbaibk" path="res://assets/sounds/Ambient/Flapping/Flapping-01.wav" id="7_o0757"]
+[ext_resource type="AudioStream" uid="uid://c70yq8ar28wuq" path="res://assets/sounds/Ambient/Flapping/Flapping-02.wav" id="8_r6ayp"]
+[ext_resource type="AudioStream" uid="uid://dmqgc88ryfavj" path="res://assets/sounds/Ambient/Flapping/Flapping-03.wav" id="9_phxp1"]
+[ext_resource type="AudioStream" uid="uid://ccykshpyvcuit" path="res://assets/sounds/Walking/Walkking-02-Earth.wav" id="10_fapwd"]
+[ext_resource type="AudioStream" uid="uid://cpomu4wfd3get" path="res://assets/ambience/wind_1.mp3" id="11_7l6fr"]
+
+[node name="AmbienceManager" type="Node2D"]
+script = ExtResource("1_vcaln")
+
+[node name="SoundWind1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fapwd")
+volume_db = -33.647
+bus = &"Ambient"
+
+[node name="SoundWind2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7l6fr")
+volume_db = -36.094
+bus = &"Ambient"
+
+[node name="TimerWind" type="Timer" parent="."]
+one_shot = true
+
+[node name="SoundBush2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_w0imr")
+volume_db = -20.188
+bus = &"Ambient"
+
+[node name="SoundBush3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_15fwn")
+volume_db = -34.319
+bus = &"Ambient"
+
+[node name="SoundBush4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_46isn")
+volume_db = -37.929
+bus = &"Ambient"
+
+[node name="TimerBush" type="Timer" parent="."]
+one_shot = true
+
+[node name="SoundFlap1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_o0757")
+volume_db = -20.188
+bus = &"Ambient"
+
+[node name="SoundFlap2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_r6ayp")
+volume_db = -20.188
+bus = &"Ambient"
+
+[node name="SoundFlap3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_phxp1")
+volume_db = -20.188
+bus = &"Ambient"
+
+[node name="TimerFlap" type="Timer" parent="."]
+one_shot = true
+
+[node name="SoundWalk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_fapwd")
+volume_db = -20.188
+bus = &"Ambient"
+
+[node name="TimerWalk" type="Timer" parent="."]
+one_shot = true
+
+[node name="LoopWind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_7l6fr")
+volume_db = -42.212
+parameters/looping = true
+
+[connection signal="timeout" from="TimerWind" to="." method="_on_timer_wind_timeout"]
+[connection signal="timeout" from="TimerBush" to="." method="_on_timer_bush_timeout"]
+[connection signal="timeout" from="TimerFlap" to="." method="_on_timer_flap_timeout"]
+[connection signal="timeout" from="TimerWalk" to="." method="_on_timer_walk_timeout"]

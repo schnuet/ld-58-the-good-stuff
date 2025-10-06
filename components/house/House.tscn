@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bx8uwa5pkxxwx"]
+[gd_scene load_steps=19 format=3 uid="uid://bx8uwa5pkxxwx"]
 
 [ext_resource type="Script" uid="uid://f85jpy5bb5ne" path="res://components/house/house.gd" id="1_4pyhr"]
 [ext_resource type="Texture2D" uid="uid://d1ldlr0phef8m" path="res://components/house/sprites/house-1-dunkel.png" id="2_5qg6p"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c8rc3oht3wdl2" path="res://components/house/sprites/house-good-stuff-1-hell.png" id="11_kr3hm"]
 [ext_resource type="AudioStream" uid="uid://bpbb7bvos4m2t" path="res://assets/sounds/Door/Door-Close.wav" id="12_r7d8v"]
 [ext_resource type="AudioStream" uid="uid://c43yderp801l8" path="res://assets/sounds/Door/Door-Open.wav" id="13_nlxxb"]
+[ext_resource type="PackedScene" uid="uid://darqvop5geah" path="res://components/eyes/Eyes.tscn" id="15_8uw3r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0onay"]
 radius = 102.53
@@ -124,7 +125,11 @@ texture = ExtResource("2_nlxxb")
 position = Vector2(-26, -287.73126)
 scale = Vector2(0.1930991, 0.19309908)
 sprite_frames = SubResource("SpriteFrames_jhj1n")
-animation = &"good-stuff-1_dunkel"
+animation = &"1_hell"
+metadata/_edit_lock_ = true
+
+[node name="Eyes" parent="Graphics" instance=ExtResource("15_8uw3r")]
+position = Vector2(-197, -25)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

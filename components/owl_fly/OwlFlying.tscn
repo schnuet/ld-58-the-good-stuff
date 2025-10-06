@@ -1,0 +1,97 @@
+[gd_scene load_steps=19 format=3 uid="uid://hgy0grbogv5m"]
+
+[ext_resource type="Texture2D" uid="uid://b30tf6q01cber" path="res://components/owl_fly/animation/Owl-fly_00000.png" id="1_kude7"]
+[ext_resource type="Script" uid="uid://be8ncuk6epnks" path="res://components/owl_fly/owl_flying.gd" id="1_osw3o"]
+[ext_resource type="Texture2D" uid="uid://dhcc2s85jdt3w" path="res://components/owl_fly/animation/Owl-fly_00001.png" id="2_osw3o"]
+[ext_resource type="Texture2D" uid="uid://cdo5ggysiqatm" path="res://components/owl_fly/animation/Owl-fly_00002.png" id="3_1m2vy"]
+[ext_resource type="Texture2D" uid="uid://c405ks7bgb0al" path="res://components/owl_fly/animation/Owl-fly_00003.png" id="4_oli74"]
+[ext_resource type="Texture2D" uid="uid://ds2bky6ydkys3" path="res://components/owl_fly/animation/Owl-fly_00004.png" id="5_nrttn"]
+[ext_resource type="Texture2D" uid="uid://btjaqyq2bw2co" path="res://components/owl_fly/animation/Owl-fly_00005.png" id="6_i2u8k"]
+[ext_resource type="Texture2D" uid="uid://bajqm458foifd" path="res://components/owl_fly/animation/Owl-fly_00006.png" id="7_tauhm"]
+[ext_resource type="Texture2D" uid="uid://dhsou7d8bcb2c" path="res://components/owl_fly/animation/Owl-fly_00007.png" id="8_qroh2"]
+[ext_resource type="Texture2D" uid="uid://blcp6ci28scbq" path="res://components/owl_fly/animation/Owl-fly_00008.png" id="9_rlh4h"]
+[ext_resource type="Texture2D" uid="uid://b1ynreiuow4u8" path="res://components/owl_fly/animation/Owl-fly_00009.png" id="10_oquyk"]
+[ext_resource type="Texture2D" uid="uid://c5bx1myp1md2" path="res://components/owl_fly/animation/Owl-fly_00010.png" id="11_48op3"]
+[ext_resource type="Texture2D" uid="uid://0hbr3whbdefh" path="res://components/owl_fly/animation/Owl-fly_00011.png" id="12_dccbd"]
+[ext_resource type="Texture2D" uid="uid://citoot6ssufdm" path="res://components/owl_fly/animation/Owl-fly_00012.png" id="13_m2qw5"]
+[ext_resource type="Texture2D" uid="uid://tmn36o4hm8lh" path="res://components/owl_fly/animation/Owl-fly_00013.png" id="14_7c8v3"]
+[ext_resource type="AudioStream" uid="uid://ynagq1r0nwku" path="res://assets/sounds/Ambient/Owl/Owl-03.wav" id="16_oli74"]
+[ext_resource type="AudioStream" uid="uid://cwb0101l667p5" path="res://assets/sounds/Ambient/Owl/Owl-02.wav" id="17_nrttn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5oxq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kude7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_osw3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1m2vy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oli74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nrttn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i2u8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tauhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qroh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rlh4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_oquyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_48op3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_dccbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_m2qw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7c8v3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
+[node name="OwlFlying" type="Node2D"]
+script = ExtResource("1_osw3o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u5oxq")
+
+[node name="Call1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_oli74")
+volume_db = -15.22
+max_distance = 1268.0
+panning_strength = 1.48
+
+[node name="Call2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_nrttn")
+volume_db = -15.22
+max_distance = 1268.0
+panning_strength = 1.48
+
+[node name="CallTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="CallTimer" to="." method="_on_call_timer_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

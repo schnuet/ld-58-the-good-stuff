@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://hbjxcm1cocwe"]
+
+[ext_resource type="Texture2D" uid="uid://db3l5op7d7h5l" path="res://components/deko/sprites/zaun.png" id="1_pkkkd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rhho"]
+size = Vector2(392, 46)
+
+[node name="Zaun" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -63)
+texture = ExtResource("1_pkkkd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_7rhho")

@@ -24,7 +24,10 @@ func _process(delta: float) -> void:
 	if in_hub:
 		value += delta * 10.0;
 	else:
+		var value_before = value;
 		value -= delta * 1.0;
+		if value_before > 0 and value <= 0:
+			$SoundOut.play();
 
 	value = clamp(value, 0.0, max_value);
 	$ProgressBar.value = value / max_value * 100.0;

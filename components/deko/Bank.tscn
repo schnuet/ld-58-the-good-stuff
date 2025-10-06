@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcud3o8j8o24o"]
+
+[ext_resource type="Texture2D" uid="uid://crvljcricmaff" path="res://components/deko/sprites/bank.png" id="1_fvxre"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwld2"]
+size = Vector2(256, 47)
+
+[node name="Bank" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -87)
+texture = ExtResource("1_fvxre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -15.5)
+shape = SubResource("RectangleShape2D_gwld2")

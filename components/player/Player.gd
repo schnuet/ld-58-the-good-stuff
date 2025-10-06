@@ -166,26 +166,29 @@ func start_rising_darkness():
 
 
 func lose_sweets():
+	# get sweets stolen by darkness
 	if sweets_bag.sweets <= 0:
 		paused = true;
+		$LoseSound.play();
 		respawn_in_hub();
 		return;
 	sweets_bag.lose_sweets(10);
+	$LoseSound.play();
 	var house = Globals.collected_houses_in_run.pop_back();
-	if house != null:
+	if house != null and not house.is_special:
 		house.reopen();
-	lose_timeout = 1;
+	lose_timeout = 1.5;
 
 func respawn_in_hub():
 	print("start respawn");
 	paused = true;
 	returning = true;
 	animated_sprite.animation = "stand";
-	await get_tree().create_timer(2).timeout;
 	global_position = Vector2(640, 460);
 	var camera = get_tree().get_first_node_in_group("camera");
 	camera.global_position = Vector2(640, 300);
 	darkness_rising = false;
+	await get_tree().create_timer(0.5).timeout;
 	returning = false;
 	var tween = get_tree().create_tween();
 	tween.tween_property(lamp, "value", lamp.max_value, 1);

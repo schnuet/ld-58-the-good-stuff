@@ -1,8 +1,10 @@
+@tool
 extends Node2D
 
 var player_inside = false;
 var sweet_type = "standard";
 var empty = false;
+var is_special: bool = false;
 
 var variant: String = "1";
 @onready var sweets_amount = randi_range(5, 10);
@@ -13,10 +15,33 @@ var variant: String = "1";
 @onready var player = get_tree().get_first_node_in_group("player");
 
 func _ready() -> void:
-	variant = str(randi_range(1, 4));
+	var variant_number = randi_range(1, 4);
+	variant = str(variant_number);
 	animated_sprite.animation = str(variant) + "_hell";
+	
+	if variant_number == 2 or variant_number == 4:
+		if $Graphics.has_node("OwlSitting"):
+			$Graphics/OwlSitting.queue_free();
+	elif randi_range(0, 4) != 0:
+		if $Graphics.has_node("OwlSitting"):
+			$Graphics/OwlSitting.queue_free();
+	else:
+		if $Graphics.has_node("OwlSitting"):
+			var left = randi_range(0, 1) == 0;
+			if left:
+				$Graphics/OwlSitting.scale.x = -1;
+	
+	if variant_number == 4:
+		if $Graphics.has_node("Eyes"):
+			$Graphics/Eyes.queue_free();
+	elif randi_range(0, 5) != 0:
+		if $Graphics.has_node("Eyes"):
+			$Graphics/Eyes.queue_free();
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		return;
+	
 	if player != null:
 		var vertical_difference = global_position.y - player.global_position.y;
 		# scale house up if player above it, down if below
@@ -85,6 +110,11 @@ func reopen():
 func make_special():
 	variant = "good-stuff-" + str(1);
 	animated_sprite.animation = str(variant) + "_hell";
+	is_special = true;
+	if $Graphics.has_node("OwlSitting"):
+		$Graphics/OwlSitting.queue_free();
+	if $Graphics.has_node("Eyes"):
+		$Graphics/Eyes.queue_free();
 
 func _on_interaction_area_area_entered(area: Area2D) -> void:
 	player_inside = true;

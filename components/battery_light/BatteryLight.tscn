@@ -246,11 +246,13 @@ script = ExtResource("1_g22u1")
 visible = false
 sprite_frames = SubResource("SpriteFrames_r3t8q")
 
-[node name="LightShineSprite" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-sprite_frames = SubResource("SpriteFrames_r3t8q")
-animation = &"big"
-
 [node name="PointLight2D" type="PointLight2D" parent="."]
 blend_mode = 2
 texture = ExtResource("55_6ent1")
+
+[node name="LightShineSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+self_modulate = Color(1.0328944, 1.0328944, 1.0328944, 0)
+position = Vector2(640, 360)
+sprite_frames = SubResource("SpriteFrames_r3t8q")
+animation = &"shine"

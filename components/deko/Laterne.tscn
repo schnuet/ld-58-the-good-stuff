@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2qu7fkyr1d46"]
+
+[ext_resource type="Texture2D" uid="uid://2jjp3m7uv4a7" path="res://components/deko/sprites_leuchtend/laterne.png" id="1_eiokj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2p1k"]
+size = Vector2(58, 37)
+
+[node name="Laterne" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1.5)
+shape = SubResource("RectangleShape2D_e2p1k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -331)
+texture = ExtResource("1_eiokj")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(0, -525)

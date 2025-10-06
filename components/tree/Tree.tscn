@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=3 uid="uid://djfhd4urcvgwm"]
+[gd_scene load_steps=157 format=3 uid="uid://djfhd4urcvgwm"]
 
 [ext_resource type="Texture2D" uid="uid://c52t1bmqwx44l" path="res://components/tree/01-Baum 1/01-Baum 1_00000.png" id="1_go7ar"]
 [ext_resource type="Texture2D" uid="uid://b88dsixtkug8u" path="res://components/tree/01-Baum 1/01-Baum 1_00001.png" id="2_ney63"]
@@ -151,6 +151,9 @@
 [ext_resource type="Texture2D" uid="uid://dccqviucvo2pc" path="res://components/tree/03-Baum 3/03-Baum 3_00048.png" id="149_5la3u"]
 [ext_resource type="Texture2D" uid="uid://c7gphqb3oyirc" path="res://components/tree/03-Baum 3/03-Baum 3_00049.png" id="150_s2nji"]
 [ext_resource type="Script" uid="uid://ca2iqfhf106e1" path="res://components/tree/tree.gd" id="151_luy6u"]
+[ext_resource type="AudioStream" uid="uid://o6o50prb3go" path="res://assets/sounds/Ambient/Wood/Wood-01.wav" id="152_ap1ow"]
+[ext_resource type="AudioStream" uid="uid://dm3hdo3vo62g6" path="res://assets/sounds/Ambient/Wood/Wood-02.wav" id="153_nx8ld"]
+[ext_resource type="AudioStream" uid="uid://fnsnt6iqk0i0" path="res://assets/sounds/Ambient/Wood/Wood-03.wav" id="154_ka8tw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aefkt"]
 animations = [{
@@ -633,3 +636,23 @@ script = ExtResource("151_luy6u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_23p4n")
+
+[node name="Sound1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("152_ap1ow")
+volume_db = -31.603
+max_distance = 300.0
+
+[node name="Sound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("153_nx8ld")
+volume_db = -31.603
+max_distance = 306.0
+
+[node name="Sound3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("154_ka8tw")
+volume_db = -31.603
+max_distance = 306.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://fqfqvvommvi2"]
+
+[ext_resource type="Texture2D" uid="uid://b2a7vi7welf8s" path="res://components/deko/sprites/muelleimer.png" id="1_dq0y0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3oosd"]
+size = Vector2(102, 39)
+
+[node name="Mülleimer" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.999998, -87.55)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("1_dq0y0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -9.5)
+shape = SubResource("RectangleShape2D_3oosd")

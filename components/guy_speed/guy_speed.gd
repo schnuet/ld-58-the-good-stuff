@@ -5,6 +5,7 @@ var sweets_cost = 20;
 var bought_out = false;
 
 @onready var sweets_bag = get_tree().get_first_node_in_group("sweets_bag");
+@onready var effects_layer = get_tree().get_first_node_in_group("effects_layer");
 @onready var requirements_bubble = $RequirementsBubble;
 @onready var idle_timer = $Timer;
 @onready var animated_sprite = $AnimatedSprite2D;

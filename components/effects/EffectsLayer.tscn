@@ -1,4 +1,4 @@
-[gd_scene load_steps=180 format=3 uid="uid://dc2n11655bpxf"]
+[gd_scene load_steps=183 format=3 uid="uid://dc2n11655bpxf"]
 
 [ext_resource type="Texture2D" uid="uid://bx18q6ppaws2r" path="res://components/effects/collect_bad_sweets/Crap Sweets_00000.png" id="1_2vrwx"]
 [ext_resource type="Script" uid="uid://bbed1pasd8rd2" path="res://components/effects/effects_layer.gd" id="1_5c6tc"]
@@ -177,6 +177,9 @@
 [ext_resource type="Texture2D" uid="uid://bn0yj6fx5dtic" path="res://components/effects/collect_lolly/Good Stuff-02_00042.png" id="175_vl6xv"]
 [ext_resource type="Texture2D" uid="uid://c0hg1p222ok7t" path="res://components/effects/collect_lolly/Good Stuff-02_00043.png" id="176_46wm7"]
 [ext_resource type="Texture2D" uid="uid://1d85aw4irqh0" path="res://components/effects/collect_lolly/Good Stuff-02_00044.png" id="177_pwy5n"]
+[ext_resource type="Texture2D" uid="uid://4s5v163g4w50" path="res://components/effects/upgrades/batterie-upgrade.png" id="178_00dwi"]
+[ext_resource type="Texture2D" uid="uid://ldpinpaln336" path="res://components/effects/upgrades/flasche-upgrade.png" id="179_waq3y"]
+[ext_resource type="Texture2D" uid="uid://ce7ixqelrm5qy" path="res://components/effects/upgrades/tasche-upgrade.png" id="180_uhevr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aq6e6"]
 animations = [{
@@ -733,6 +736,15 @@ animations = [{
 material = ExtResource("1_r2ifb")
 script = ExtResource("1_5c6tc")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1920, 1080)
+offset_left = -316.0
+offset_top = -171.0
+offset_right = 1604.0
+offset_bottom = 909.0
+color = Color(0, 0, 0, 1)
+
 [node name="CollectBadSweets" type="AnimatedSprite2D" parent="."]
 use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_aq6e6")
@@ -754,3 +766,18 @@ visible = false
 use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_cw7qo")
 animation = &"cookie"
+
+[node name="LampUpgrade" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(640, 360)
+texture = ExtResource("178_00dwi")
+
+[node name="SpeedUpgrade" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(640, 360)
+texture = ExtResource("179_waq3y")
+
+[node name="BagUpgrade" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(640, 360)
+texture = ExtResource("180_uhevr")

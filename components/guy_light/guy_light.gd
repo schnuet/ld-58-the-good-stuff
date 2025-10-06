@@ -5,6 +5,7 @@ var sweets_cost = 20;
 var bought_out = false;
 
 @onready var sweets_bag = get_tree().get_first_node_in_group("sweets_bag");
+@onready var effects_layer = get_tree().get_first_node_in_group("effects_layer");
 @onready var battery_light = get_tree().get_first_node_in_group("battery_light");
 @onready var battery_lamp = get_tree().get_first_node_in_group("battery_lamp");
 @onready var requirements_bubble = $RequirementsBubble;
@@ -60,6 +61,8 @@ func interact():
 		battery_lamp.upgrade();
 		battery_light.upgrade();
 		$BuySound.play();
+		print("perform lamp upgrade");
+		await effects_layer.play_effect("lamp_upgrade", global_position);
 		update_sweets_cost(sweets_cost * 1.5);
 		if battery_lamp.level >= 3:
 			bought_out = true;

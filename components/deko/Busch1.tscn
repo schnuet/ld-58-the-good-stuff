@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8fiwqp3jmp4n"]
+
+[ext_resource type="Texture2D" uid="uid://qyl7r4a1s8du" path="res://components/deko/sprites/busch-01.png" id="1_qsn4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3o6i"]
+size = Vector2(249, 58)
+
+[node name="Busch1" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.000004, -98.5)
+scale = Vector2(0.69666666, 0.69666666)
+texture = ExtResource("1_qsn4y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -21)
+shape = SubResource("RectangleShape2D_q3o6i")

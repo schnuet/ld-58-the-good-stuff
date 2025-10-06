@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0544lrqud78c"]
+[gd_scene load_steps=5 format=3 uid="uid://c0544lrqud78c"]
 
 [ext_resource type="Script" uid="uid://dpbmc5qmtj5y0" path="res://components/battery_lamp/battery_lamp.gd" id="1_vhf13"]
+[ext_resource type="AudioStream" uid="uid://2b6ktenhl3e5" path="res://assets/sounds/Ambient/Scary/Ambient-05-scary.wav" id="2_g47np"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhf13"]
 content_margin_left = 2.0
@@ -43,3 +44,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_vhf13")
 theme_override_styles/fill = SubResource("StyleBoxFlat_g47np")
 value = 50.0
 show_percentage = false
+
+[node name="SoundOut" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_g47np")
+volume_db = -20.188
