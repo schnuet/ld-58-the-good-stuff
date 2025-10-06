@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c4ed5252vmc72"
+path="res://.godot/imported/Looking for the Good Stuff - Ambient Chills.ogg-883e9e7201b000a9618e7cc8b6d0d0cf.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Music/Steff/Looking for the Good Stuff - Ambient Chills.ogg"
+dest_files=["res://.godot/imported/Looking for the Good Stuff - Ambient Chills.ogg-883e9e7201b000a9618e7cc8b6d0d0cf.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

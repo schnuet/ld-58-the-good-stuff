@@ -5,9 +5,14 @@ var max_sweets: int = 30;
 
 var upgrade_level: int = 1;
 
+var interpolated_value: int = 0;
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
+
+func _process(_delta: float) -> void:
+	$Label.text = str(interpolated_value) + "/" + str(max_sweets);
 
 func add_sweets(num: int):
 	update_sweets(sweets + num);
@@ -16,8 +21,10 @@ func lose_sweets(num: int):
 	update_sweets(sweets - num);
 
 func update_sweets(num: int):
+	$AnimationPlayer.play("bump");
 	sweets = clamp(num, 0, max_sweets);
-	$Label.text = str(sweets);
+	var tween = get_tree().create_tween();
+	tween.tween_property(self, "interpolated_value", sweets, 0.5);
 
 func upgrade():
 	if upgrade_level == 1:

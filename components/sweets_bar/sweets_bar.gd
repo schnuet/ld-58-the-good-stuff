@@ -9,6 +9,7 @@ func show_sweet(type: String):
 		$Cookies.show();
 
 func hide_sweet(type: String):
+	print("hide sweet ", type);
 	if type == "chocolate":
 		$Chocolate.hide();
 	elif type == "lolly":

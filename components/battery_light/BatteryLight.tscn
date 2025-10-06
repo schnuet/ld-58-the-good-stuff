@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://bw483rv14pvcp"]
+[gd_scene load_steps=57 format=3 uid="uid://bw483rv14pvcp"]
 
 [ext_resource type="Texture2D" uid="uid://bjrxb20wur7f4" path="res://components/light/anim/Lichtkreis_00000.png" id="1_dprhl"]
 [ext_resource type="Script" uid="uid://ew1nqgw5qvvx" path="res://components/battery_light/battery_light.gd" id="1_g22u1"]
 [ext_resource type="Texture2D" uid="uid://c58j0jmohja0n" path="res://components/light/anim/Lichtkreis_00001.png" id="2_g22u1"]
+[ext_resource type="Texture2D" uid="uid://cbhxqt7mrl078" path="res://assets/effects/lichtkegel2.png" id="2_yn15f"]
 [ext_resource type="Texture2D" uid="uid://bvch0xur1pjmq" path="res://components/light/anim/Lichtkreis_00002.png" id="3_u1hvp"]
 [ext_resource type="Texture2D" uid="uid://cjq2kpeqeg75q" path="res://components/light/anim/Lichtkreis_00003.png" id="4_cef6u"]
 [ext_resource type="Texture2D" uid="uid://bfpyj2ipolbso" path="res://components/light/anim/Lichtkreis_00004.png" id="5_dkemq"]
@@ -27,9 +28,44 @@
 [ext_resource type="Texture2D" uid="uid://wvxe1mrdiivh" path="res://components/light/anim/Lichtkreis_00023.png" id="24_30fig"]
 [ext_resource type="Texture2D" uid="uid://cm1gow0xjffce" path="res://components/light/anim/Lichtkreis_00024.png" id="25_r3ro6"]
 [ext_resource type="Texture2D" uid="uid://coskspdpe8hcq" path="res://components/light/anim/Lichtkreis_00025.png" id="26_qqccy"]
+[ext_resource type="Texture2D" uid="uid://lew2sduw7rcp" path="res://components/light/mask_anim/1.png" id="28_rumv4"]
+[ext_resource type="Texture2D" uid="uid://nem2cwgc468x" path="res://components/light/mask_anim/2.png" id="29_yn15f"]
+[ext_resource type="Texture2D" uid="uid://8nvq3heu00xa" path="res://components/light/mask_anim/3.png" id="30_6ent1"]
+[ext_resource type="Texture2D" uid="uid://lbdciinlfxui" path="res://components/light/mask_anim/4.png" id="31_rxqch"]
+[ext_resource type="Texture2D" uid="uid://bygeu3nrjty7q" path="res://components/light/mask_anim/5.png" id="32_c3bfx"]
+[ext_resource type="Texture2D" uid="uid://bcocotlr1mak7" path="res://components/light/mask_anim/6.png" id="33_4wjoq"]
+[ext_resource type="Texture2D" uid="uid://c8nqvj6kew8yn" path="res://components/light/mask_anim/7.png" id="34_ks0ru"]
+[ext_resource type="Texture2D" uid="uid://dy0cvviw0p1do" path="res://components/light/mask_anim/8.png" id="35_gp3uh"]
+[ext_resource type="Texture2D" uid="uid://crs7ujpd3nxxa" path="res://components/light/mask_anim/9.png" id="36_rskse"]
+[ext_resource type="Texture2D" uid="uid://drn2hxmkk0bp8" path="res://components/light/mask_anim/10.png" id="37_04a5c"]
+[ext_resource type="Texture2D" uid="uid://cxju0v43edqhe" path="res://components/light/mask_anim/11.png" id="38_8xnrc"]
+[ext_resource type="Texture2D" uid="uid://cbto47eu83rpv" path="res://components/light/mask_anim/12.png" id="39_opu6k"]
+[ext_resource type="Texture2D" uid="uid://bm7sxak4jbch1" path="res://components/light/mask_anim/13.png" id="40_ylqc4"]
+[ext_resource type="Texture2D" uid="uid://bvxmyqxv332l6" path="res://components/light/mask_anim/14.png" id="41_tn5sq"]
+[ext_resource type="Texture2D" uid="uid://curharcc3thlw" path="res://components/light/mask_anim/15.png" id="42_4bc4k"]
+[ext_resource type="Texture2D" uid="uid://dbly8ccyx4qfc" path="res://components/light/mask_anim/16.png" id="43_mlocg"]
+[ext_resource type="Texture2D" uid="uid://c0tjttgdo0kre" path="res://components/light/mask_anim/17.png" id="44_n6bsx"]
+[ext_resource type="Texture2D" uid="uid://b2vusqw5mtwbk" path="res://components/light/mask_anim/18.png" id="45_83k28"]
+[ext_resource type="Texture2D" uid="uid://bqxdywvsb321n" path="res://components/light/mask_anim/19.png" id="46_kksr0"]
+[ext_resource type="Texture2D" uid="uid://bprpoof6yoftv" path="res://components/light/mask_anim/20.png" id="47_i5jph"]
+[ext_resource type="Texture2D" uid="uid://cyr3d0b6jmfex" path="res://components/light/mask_anim/21.png" id="48_xm1ec"]
+[ext_resource type="Texture2D" uid="uid://qi3upwhyyu1g" path="res://components/light/mask_anim/22.png" id="49_mhk3h"]
+[ext_resource type="Texture2D" uid="uid://cht8hquihlrtt" path="res://components/light/mask_anim/23.png" id="50_vpcaf"]
+[ext_resource type="Texture2D" uid="uid://cibjq7kkjn4gl" path="res://components/light/mask_anim/24.png" id="51_s0dse"]
+[ext_resource type="Texture2D" uid="uid://wn415v60uqr4" path="res://components/light/mask_anim/25.png" id="52_j68wg"]
+[ext_resource type="Texture2D" uid="uid://dioa85783cxjl" path="res://components/light/mask_anim/26.png" id="53_77v2d"]
+[ext_resource type="Texture2D" uid="uid://feyc6jl7nnqu" path="res://assets/effects/lichtkegel_gross_weiss.png" id="55_6ent1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r3t8q"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yn15f")
+}],
+"loop": true,
+"name": &"big",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_dprhl")
@@ -112,6 +148,89 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_rumv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_yn15f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_6ent1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_rxqch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_c3bfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_4wjoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_ks0ru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_gp3uh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_rskse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_04a5c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_8xnrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_opu6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ylqc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_tn5sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_4bc4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_mlocg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_n6bsx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_83k28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_kksr0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_i5jph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_xm1ec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_mhk3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_vpcaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_s0dse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_j68wg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_77v2d")
+}],
+"loop": true,
+"name": &"shine",
+"speed": 5.0
 }]
 
 [node name="BatteryLight" type="Control" groups=["battery_light"]]
@@ -124,9 +243,14 @@ grow_vertical = 2
 script = ExtResource("1_g22u1")
 
 [node name="LightAnimatedSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_r3t8q")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="LightShineSprite" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+sprite_frames = SubResource("SpriteFrames_r3t8q")
+animation = &"big"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+blend_mode = 2
+texture = ExtResource("55_6ent1")

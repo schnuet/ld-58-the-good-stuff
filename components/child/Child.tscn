@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://18ek4mwfjisr"]
+[gd_scene load_steps=35 format=3 uid="uid://18ek4mwfjisr"]
 
 [ext_resource type="Script" uid="uid://b4s6b7uejes5p" path="res://components/child/child.gd" id="1_jfw10"]
 [ext_resource type="Texture2D" uid="uid://cxvbmjhairiin" path="res://components/child/anims/idle/Paula Pumpkin_00000.png" id="2_kw0xn"]
+[ext_resource type="Texture2D" uid="uid://to5kwscmdje8" path="res://assets/effects/floor_shadow.png" id="2_mrp6r"]
 [ext_resource type="Texture2D" uid="uid://dskwrjx85qt40" path="res://components/child/anims/idle/Paula Pumpkin_00001.png" id="3_mmq8v"]
 [ext_resource type="Texture2D" uid="uid://pcowqxkk0av7" path="res://components/child/anims/idle/Paula Pumpkin_00002.png" id="4_lr5lw"]
 [ext_resource type="Texture2D" uid="uid://t2cnjnoayi32" path="res://components/child/anims/idle/Paula Pumpkin_00003.png" id="5_mfi74"]
@@ -21,6 +22,15 @@
 [ext_resource type="Texture2D" uid="uid://b0ory3f3bnexv" path="res://components/child/anims/idle/Paula Pumpkin_00017.png" id="19_osuxs"]
 [ext_resource type="Texture2D" uid="uid://bxwo0v1ws6gra" path="res://components/child/anims/idle/Paula Pumpkin_00018.png" id="20_j2p14"]
 [ext_resource type="Texture2D" uid="uid://wuk3rwtx0aa8" path="res://components/child/anims/idle/Paula Pumpkin_00019.png" id="21_i0ck7"]
+[ext_resource type="Material" uid="uid://bh6laxeqskk7a" path="res://components/light/UnshadedLight.tres" id="22_lr5lw"]
+[ext_resource type="Texture2D" uid="uid://ct2i7uxh6tv4j" path="res://assets/icons/goodstuff-1-100x100px.png" id="23_etok2"]
+[ext_resource type="Texture2D" uid="uid://dxej7mrd4sfhe" path="res://assets/icons/goodstuff-2-100x100px.png" id="24_mrp6r"]
+[ext_resource type="Texture2D" uid="uid://bbnvq7t5xauxu" path="res://assets/icons/goodstuff-3-100x100px.png" id="25_i4agn"]
+[ext_resource type="AudioStream" uid="uid://dm3817nofqgtb" path="res://assets/sounds/NPC/04-Petra Pumpkin-01.wav" id="26_l0ver"]
+[ext_resource type="AudioStream" uid="uid://blbppah0qsnp3" path="res://assets/sounds/NPC/04-Petra Pumpkin-02.wav" id="27_etok2"]
+[ext_resource type="AudioStream" uid="uid://wdclu73vrjte" path="res://assets/sounds/NPC/04-Petra Pumpkin-03.wav" id="28_mrp6r"]
+[ext_resource type="AudioStream" uid="uid://cgm2nh4xlhtox" path="res://assets/sounds/NPC/04-Petra Pumpkin-04.wav" id="29_i4agn"]
+[ext_resource type="AudioStream" uid="uid://dhcgq1y2278ob" path="res://assets/sounds/NPC/04-Petra Pumpkin-05.wav" id="30_efp20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kw0xn"]
 size = Vector2(222, 72)
@@ -114,10 +124,90 @@ collision_mask = 2
 position = Vector2(0, 46)
 shape = SubResource("CircleShape2D_fmrqw")
 
+[node name="FloorShadow" type="Sprite2D" parent="."]
+position = Vector2(-0.99999976, 33)
+scale = Vector2(0.45666668, 0.5516666)
+texture = ExtResource("2_mrp6r")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -44)
 scale = Vector2(1.125, 1.125)
 sprite_frames = SubResource("SpriteFrames_jfw10")
+
+[node name="RequirementsBubble" type="Node2D" parent="."]
+light_mask = 0
+z_index = 20
+z_as_relative = false
+material = ExtResource("22_lr5lw")
+
+[node name="Polygon2D" type="Polygon2D" parent="RequirementsBubble"]
+light_mask = 0
+use_parent_material = true
+polygon = PackedVector2Array(-2, -184, -8, -243, -73, -247, -142, -264, -159, -322, -135, -360, -58, -387, 42, -385, 153, -377, 197, -343, 193, -292, 184, -262, 135, -253, 46, -252, 15, -248)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RequirementsBubble"]
+use_parent_material = true
+offset_left = -157.0
+offset_top = -364.0
+offset_right = 196.0
+offset_bottom = -264.0
+alignment = 1
+
+[node name="Chocolate" type="Control" parent="RequirementsBubble/HBoxContainer"]
+light_mask = 0
+use_parent_material = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Chocolate" type="Sprite2D" parent="RequirementsBubble/HBoxContainer/Chocolate"]
+light_mask = 0
+use_parent_material = true
+position = Vector2(49, 50)
+texture = ExtResource("23_etok2")
+
+[node name="Lolly" type="Control" parent="RequirementsBubble/HBoxContainer"]
+light_mask = 0
+use_parent_material = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Lolly" type="Sprite2D" parent="RequirementsBubble/HBoxContainer/Lolly"]
+light_mask = 0
+use_parent_material = true
+position = Vector2(49, 50)
+texture = ExtResource("24_mrp6r")
+
+[node name="Cookie" type="Control" parent="RequirementsBubble/HBoxContainer"]
+light_mask = 0
+use_parent_material = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Cookie" type="Sprite2D" parent="RequirementsBubble/HBoxContainer/Cookie"]
+light_mask = 0
+use_parent_material = true
+position = Vector2(49, 50)
+texture = ExtResource("25_i4agn")
+
+[node name="VoiceSound1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_l0ver")
+volume_db = -20.0
+
+[node name="VoiceSound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_etok2")
+volume_db = -20.0
+
+[node name="VoiceSound3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_mrp6r")
+volume_db = -20.0
+
+[node name="VoiceSound4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_i4agn")
+volume_db = -20.0
+
+[node name="VoiceSound5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_efp20")
+volume_db = -20.0
 
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

@@ -10,18 +10,19 @@ config_version=5
 
 [application]
 
-config/name="The Last Outpost"
+config/name="Looking for the Good Stuff"
 run/main_scene="uid://dob3oxs7ln2df"
 config/features=PackedStringArray("4.5")
-config/icon="res://icon.png"
+config/icon="uid://c4ugntfwfa4kx"
+config/windows_native_icon="res://assets/icons/crap-sweets.ico"
 
 [autoload]
 
 MessageBox="*res://globals/MessageBox.tscn"
 MusicPlayer="*res://globals/MusicPlayer.tscn"
-SceneManager="*res://addons/scene_manager/SceneManager.tscn"
-MenuPopup="*res://globals/MenuPopup.tscn"
+SceneManager="*res://addons/scene_manager/scene_manager.tscn"
 Globals="*res://globals/Globals.gd"
+Scenes="*res://addons/scene_manager/scenes.gd"
 
 [display]
 
@@ -44,6 +45,7 @@ battery_lamp=""
 effects_layer=""
 battery_light=""
 house=""
+light_requirements_bubble=""
 
 [godot_helper_pack_plugin]
 

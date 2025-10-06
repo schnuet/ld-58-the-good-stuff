@@ -49,6 +49,8 @@ var health_bar;
 
 @onready var sweets_bag = get_tree().get_first_node_in_group("sweets_bag");
 @onready var lamp = get_tree().get_first_node_in_group("battery_lamp");
+@onready var battery_light = get_tree().get_first_node_in_group("battery_light");
+@onready var sweat = $AnimatedSprite2D/Sweat;
 
 func _ready():
 	#icon = get_tree().get_first_node_in_group("player_icon");
@@ -56,6 +58,7 @@ func _ready():
 	#
 	#set_max_health(3);
 	#set_health(max_health);
+	sweat.hide();
 	
 	animated_sprite.play("stand");
 
@@ -79,6 +82,11 @@ func _physics_process(delta):
 			light.energy = lamp_fill * 0.6 + 0.4;
 			light.texture_scale = lamp_scale;
 			
+			if lamp_fill < 0.3:
+				sweat.show();
+				sweat.play();
+			else:
+				sweat.hide();
 	
 	if not paused:
 		# Once again, we call `Input.get_action_strength()` to support analog movement.
@@ -104,8 +112,10 @@ func _physics_process(delta):
 		_velocity += (target_velocity - _velocity) * friction
 		set_velocity(_velocity)
 		move_and_slide()
-		_velocity = velocity
+	else:
+		velocity = Vector2.ZERO
 	
+	_velocity = velocity
 
 	# Update the character's sprite animation based on movement and light status.
 
@@ -115,18 +125,29 @@ func _physics_process(delta):
 		anim = "walk";
 	else:
 		anim = "stand";
+		
+	if anim == "walk":
+		if not $WalkSoundConcrete.is_playing():
+			$WalkSoundConcrete.play();
+	else:
+		if $WalkSoundConcrete.is_playing():
+			$WalkSoundConcrete.stop();
 	
 	animated_sprite.animation = anim;
 
 
 
 func enter_hub():
+	print("enter hub");
+	lamp.value += 0.25;
+	darkness_rising = false;
 	if lamp:
 		lamp.enter_hub();
 	else:
 		print("no lamp found");
 
 func exit_hub():
+	print("exit hub");
 	if lamp:
 		lamp.exit_hub();
 	else:
@@ -134,11 +155,14 @@ func exit_hub():
 
 
 func start_rising_darkness():
+	print("start rising darkness");
 	darkness_rising = true;
 	lose_timeout = 1;
 	var tween = get_tree().create_tween();
-	tween.tween_property(light, "energy", 0, 0.2);
-	tween.tween_property(light, "texture_scale", 0, 0.2);
+	tween.tween_property(battery_light.local_light, "energy", 0, 0.2);
+	tween.tween_property(battery_light.local_light, "texture_scale", 0, 0.2);
+	await tween.finished;
+	print("end rising darkness");
 
 
 func lose_sweets():
@@ -153,18 +177,20 @@ func lose_sweets():
 	lose_timeout = 1;
 
 func respawn_in_hub():
+	print("start respawn");
+	paused = true;
 	returning = true;
 	animated_sprite.animation = "stand";
 	await get_tree().create_timer(2).timeout;
-	global_position = Vector2(640, 360);
+	global_position = Vector2(640, 460);
 	var camera = get_tree().get_first_node_in_group("camera");
 	camera.global_position = Vector2(640, 300);
+	darkness_rising = false;
+	returning = false;
 	var tween = get_tree().create_tween();
 	tween.tween_property(lamp, "value", lamp.max_value, 1);
 	await get_tree().create_timer(3).timeout;
 	paused = false;
-	returning = false;
-	darkness_rising = false;
 	return;
 
 
@@ -207,32 +233,39 @@ func _update_sprite(direction: Vector2) -> void:
 	
 	if direction == Vector2.RIGHT:
 		x_direction = Vector2.RIGHT;
-		animated_sprite.flip_h = false;
+		animated_sprite.scale.x = 1;
 	if direction == Vector2.LEFT:
 		x_direction = Vector2.LEFT;
-		animated_sprite.flip_h = true;
+		animated_sprite.scale.x = -1;
 
 
 func add_sweet(type: String, amount: int = 1):
 	var sweets_bar = get_tree().get_first_node_in_group("sweets_bar");
-	sweets_bar.show_sweet(type);
 	if type == "standard":
 		paused = true;
+		$CollectSound.play();
 		await effects_layer.play_effect("collect_bad_sweets", global_position - Vector2(0, 210));
 		paused = false;
 		sweets_bag.add_sweets(amount);
 		print("player add sweets ", type, " ", amount);
 	elif type == "chocolate":
+		$GoodCollectSound.play();
 		await effects_layer.play_effect("collect_chocolate", global_position - Vector2(0, 210));
 		carries_chocolate = true;
+		sweets_bar.show_sweet("chocolate");
 	elif type == "lolly":
-		# await effects_layer.play_effect("collect_lolly", global_position - Vector2(0, 210));
+		$GoodCollectSound.play();
+		await effects_layer.play_effect("collect_lolly", global_position - Vector2(0, 210));
 		carries_lolly = true;
+		sweets_bar.show_sweet("lolly");
 	elif type == "cookies":
-		# await effects_layer.play_effect("collect_cookies", global_position - Vector2(0, 210));
+		$GoodCollectSound.play();
+		await effects_layer.play_effect("collect_cookie", global_position - Vector2(0, 210));
 		carries_cookie = true;
+		sweets_bar.show_sweet("cookies");
 
 func drop_sweets(type: String, amount: int = 1):
+	print("drop ", type, " -- ", amount);
 	var sweets_bar = get_tree().get_first_node_in_group("sweets_bar");
 	sweets_bar.hide_sweet(type);
 	if type == "standard":

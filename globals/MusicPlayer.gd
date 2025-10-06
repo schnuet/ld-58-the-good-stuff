@@ -2,10 +2,10 @@ extends AudioStreamPlayer
 
 var current_music_name = "";
 
-# register and preload your music streams here:
+# register and preload your music streams here:ss
 var music_streams = {
-	"kronenberg": preload("res://assets/music/kronenberg_theme.ogg"),
-	"maintheme": preload("res://assets/music/maintheme.ogg")
+	#"kronenberg": preload("res://assets/music/kronenberg_theme.ogg"),
+	"maintheme": preload("res://assets/music/Looking for the Good Stuff - Lonley Tune.mp3")
 };
 
 func play_music(music_name:String):

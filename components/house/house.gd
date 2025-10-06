@@ -7,14 +7,23 @@ var empty = false;
 var variant: String = "1";
 @onready var sweets_amount = randi_range(5, 10);
 
-@onready var animated_sprite = $AnimatedSprite2D;
+@onready var animated_sprite = $Graphics/AnimatedSprite2D;
+@onready var graphics_node = $Graphics;
 @onready var sweets_bag = get_tree().get_first_node_in_group("sweets_bag");
+@onready var player = get_tree().get_first_node_in_group("player");
 
 func _ready() -> void:
 	variant = str(randi_range(1, 4));
 	animated_sprite.animation = str(variant) + "_hell";
 
 func _process(delta: float) -> void:
+	if player != null:
+		var vertical_difference = global_position.y - player.global_position.y;
+		# scale house up if player above it, down if below
+		var scale_factor = 1.0 + (vertical_difference / 3000.0);
+		scale_factor = clamp(scale_factor, 0.75, 1.25);
+		graphics_node.scale = Vector2(scale_factor, scale_factor);
+	
 	if not player_inside:
 		return
 	
@@ -31,6 +40,8 @@ func give_sweet():
 	if not check_if_player_has_space():
 		print("player has no space");
 		return false;
+	
+	$DoorOpen.play();
 	
 	Globals.collected_houses.append(self)
 	Globals.collected_houses_in_run.append(self);
@@ -63,6 +74,7 @@ func close_house():
 	print("close house");
 	animated_sprite.animation = str(variant) + "_dunkel";
 	empty = true;
+	$DoorClose.play();
 
 func reopen():
 	print("reopen house");

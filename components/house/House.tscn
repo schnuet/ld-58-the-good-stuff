@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bx8uwa5pkxxwx"]
+[gd_scene load_steps=18 format=3 uid="uid://bx8uwa5pkxxwx"]
 
 [ext_resource type="Script" uid="uid://f85jpy5bb5ne" path="res://components/house/house.gd" id="1_4pyhr"]
 [ext_resource type="Texture2D" uid="uid://d1ldlr0phef8m" path="res://components/house/sprites/house-1-dunkel.png" id="2_5qg6p"]
+[ext_resource type="Texture2D" uid="uid://to5kwscmdje8" path="res://assets/effects/floor_shadow.png" id="2_nlxxb"]
 [ext_resource type="Texture2D" uid="uid://sp28wxpebbqf" path="res://components/house/sprites/house-1-hell.png" id="3_4ct34"]
 [ext_resource type="Texture2D" uid="uid://mo8xytnw6yni" path="res://components/house/sprites/house-2-dunkel.png" id="4_ffrhy"]
 [ext_resource type="Texture2D" uid="uid://bjh64e0amc5g2" path="res://components/house/sprites/house-2-hell.png" id="5_7pgq6"]
@@ -11,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dk3sbq0s2m1hy" path="res://components/house/sprites/house-4-hell.png" id="9_nlxxb"]
 [ext_resource type="Texture2D" uid="uid://cefermbp3pb8s" path="res://components/house/sprites/house-good-stuff-1-dunkel.png" id="10_3wp80"]
 [ext_resource type="Texture2D" uid="uid://c8rc3oht3wdl2" path="res://components/house/sprites/house-good-stuff-1-hell.png" id="11_kr3hm"]
+[ext_resource type="AudioStream" uid="uid://bpbb7bvos4m2t" path="res://assets/sounds/Door/Door-Close.wav" id="12_r7d8v"]
+[ext_resource type="AudioStream" uid="uid://c43yderp801l8" path="res://assets/sounds/Door/Door-Open.wav" id="13_nlxxb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0onay"]
 radius = 102.53
@@ -99,7 +102,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pyhr"]
-size = Vector2(401, 116)
+size = Vector2(453, 116)
 
 [node name="House" type="Node2D" groups=["house"]]
 script = ExtResource("1_4pyhr")
@@ -111,7 +114,13 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_0onay")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Graphics" type="Node2D" parent="."]
+
+[node name="FloorShadow" type="Sprite2D" parent="Graphics"]
+position = Vector2(-22, 4)
+texture = ExtResource("2_nlxxb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Graphics"]
 position = Vector2(-26, -287.73126)
 scale = Vector2(0.1930991, 0.19309908)
 sprite_frames = SubResource("SpriteFrames_jhj1n")
@@ -120,8 +129,16 @@ animation = &"good-stuff-1_dunkel"
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-75.5, -55)
+position = Vector2(-56.5, -55)
 shape = SubResource("RectangleShape2D_4pyhr")
+
+[node name="DoorClose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_r7d8v")
+volume_db = -26.0
+
+[node name="DoorOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_nlxxb")
+volume_db = -25.0
 
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

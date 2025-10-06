@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c0h57nkxwg3qc"
+path="res://.godot/imported/Ashot Danielyan - Mysterious Depressed Ambient (WAV).wav-09843d4d18de360268c6c4b7fec4c61e.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Music/Felix/Ashot Danielyan - Mysterious Depressed Ambient (WAV).wav"
+dest_files=["res://.godot/imported/Ashot Danielyan - Mysterious Depressed Ambient (WAV).wav-09843d4d18de360268c6c4b7fec4c61e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
