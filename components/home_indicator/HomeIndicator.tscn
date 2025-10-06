@@ -9,4 +9,4 @@ script = ExtResource("1_4p1f3")
 [node name="Polygon2D" type="Polygon2D" parent="."]
 light_mask = 0
 rotation = 4.716306
-polygon = PackedVector2Array(-43, -4, -11, -3, -11, -8, 0, 0, -11, 8, -11, 3, -43, 4)
+polygon = PackedVector2Array(-47.023148, -5.8158455, -14.011646, -2.9451363, -15.035142, -8.941174, 0, 0, -14.964631, 9.058691, -13.988142, 3.0548184, -46.976143, 6.184064, -45.999653, 0.1801921)

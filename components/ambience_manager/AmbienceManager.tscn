@@ -75,7 +75,6 @@ one_shot = true
 [node name="LoopWind" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_7l6fr")
 volume_db = -42.212
-parameters/looping = true
 
 [connection signal="timeout" from="TimerWind" to="." method="_on_timer_wind_timeout"]
 [connection signal="timeout" from="TimerBush" to="." method="_on_timer_bush_timeout"]

@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player == null:
 		player = get_tree().get_first_node_in_group("player");
 		return;
@@ -28,4 +28,4 @@ func _process(delta: float) -> void:
 	position += Vector2(dir_to_home.x * half_screen.x, dir_to_home.y * half_screen.y) * 0.9;
 	rotation = dir_to_home.angle() + PI / 2;
 	
-	visible = (player.global_position - home_center).length() > 900;
+	visible = (player.global_position - home_center).length() > 600;

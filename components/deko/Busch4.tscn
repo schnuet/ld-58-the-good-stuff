@@ -3,16 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://b5srqixkgjky5" path="res://components/deko/sprites/busch-04.png" id="1_yx4hj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52yl7"]
-size = Vector2(230, 57)
+size = Vector2(191, 50)
 
 [node name="Busch4" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -92.99999)
+position = Vector2(0, -79.00001)
 scale = Vector2(0.7866667, 0.7866667)
 texture = ExtResource("1_yx4hj")
 region_rect = Rect2(1, 1, 26, 110)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, -18.5)
+position = Vector2(2.5, -22)
 shape = SubResource("RectangleShape2D_52yl7")

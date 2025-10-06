@@ -2,48 +2,32 @@ extends "../Scene.gd";
 
 
 func _ready():
-	$StartButton.visible = false;
-	$CreditsButton.visible = false;
-	
-	$Floor/LastOutpostFireHigh/AnimationPlayer.play("flicker");
-	$Floor/AnimationPlayer.play("rise");
-	
-	MusicPlayer.play_music("maintheme");
+	$Node2D/PlayerAnimation.play();
+	$AnimationPlayer.play("walk");
+	$Node2D/PaulaPumpkin00000.play();
+	return;
 
+func _process(_delta: float) -> void:
+	if not $Node2D/PlayerAnimation/AudioStreamPlayer2D.playing:
+		$Node2D/PlayerAnimation/AudioStreamPlayer2D.play();
 
 func _unhandled_input(event):
 	if event.is_action("action"):
-		_on_StartButton_pressed();
-
-
-func _on_StartButton_pressed():
-	Globals.set("game_ready", false);
-	SceneManager.change_scene_to_file("res://scenes/05_tutorial/TutorialScene.tscn");
-
+		_on_start_button_pressed();
 
 func _on_CreditsButton_pressed():
-	SceneManager.change_scene_to_file("res://scenes/99_credits/SceneCredits.tscn");
+	change_to_scene("SceneCredits");
 
 
-func _on_StartScene_hidden():
-	$CanvasLayer.hide();
+func change_to_scene(new_scene_id: String):
+	var fade_out_options = SceneManager.create_options(1.0, "fade", 0.1, false);
+	var fade_in_options = SceneManager.create_options(1.0, "fade", 0.1, false);
+	var general_options = SceneManager.create_general_options(Color.BLACK, 3.0, false, true);
+	SceneManager.change_scene(new_scene_id, fade_out_options, fade_in_options, general_options);
 
 
-func _on_StartScene_shown():
-	$CanvasLayer.show();
-
-
-func _on_SettingsButton_pressed():
-	MenuPopup.show();
-
-
-func _on_ButtonsTimer_timeout():
-	$StartButton/AnimationPlayer.play("in");
-	$CreditsButton/AnimationPlayer.play("in");
-	
-	$ButtonsTimer/VisibilityTimer.start(0.1);
-
-
-func _on_VisibilityTimer_timeout():
-	$StartButton.visible = true;
-	$CreditsButton.visible = true;
+func _on_start_button_pressed() -> void:
+	Globals.set("game_ready", false);
+	$CanvasLayer/StartButton.hide();
+	await get_tree().create_timer(0.2).timeout;
+	change_to_scene("SceneGame");

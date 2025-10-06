@@ -5,10 +5,11 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	main_music.play();
 	animated_sprite.play();
 
 func _process(delta: float) -> void:
+	if not main_music.playing:
+		main_music.play();
 	if Input.is_action_just_pressed("action"):
 		if $InteractionArea.has_overlapping_areas():
 			var playback_position = main_music.get_playback_position();

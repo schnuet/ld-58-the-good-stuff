@@ -41,6 +41,7 @@ var carries_cookie = false;
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D;
 @onready var light = $PointLight2D;
+@onready var lamp_light = $LampLight;
 @onready var effects_layer = get_tree().get_first_node_in_group("effects_layer");
 
 #scenemanager
@@ -237,9 +238,11 @@ func _update_sprite(direction: Vector2) -> void:
 	if direction == Vector2.RIGHT:
 		x_direction = Vector2.RIGHT;
 		animated_sprite.scale.x = 1;
+		lamp_light.position.x = 75;
 	if direction == Vector2.LEFT:
 		x_direction = Vector2.LEFT;
 		animated_sprite.scale.x = -1;
+		lamp_light.position.x = -75;
 
 
 func add_sweet(type: String, amount: int = 1):

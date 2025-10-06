@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://doqf77ihkpgam"]
+
+[ext_resource type="Script" uid="uid://cgiv5c6tvb37y" path="res://components/tutorial/tutorial.gd" id="1_ovvhn"]
+[ext_resource type="Texture2D" uid="uid://k8ba6nd51xjd" path="res://components/tutorial/screens/01-Tutorial.png" id="1_p07fp"]
+[ext_resource type="Texture2D" uid="uid://cyfsyuw7oudpp" path="res://components/tutorial/screens/02-Tutorial.png" id="2_ovvhn"]
+[ext_resource type="Texture2D" uid="uid://qkic5rt7kwiu" path="res://components/tutorial/screens/03-Tutorial.png" id="3_ug20x"]
+[ext_resource type="Texture2D" uid="uid://citf6dd38vwo1" path="res://components/tutorial/screens/04-Tutorial.png" id="4_uux6d"]
+[ext_resource type="PackedScene" uid="uid://bydvsuudsv7el" path="res://components/interact_marker/InteractMarker.tscn" id="5_4h5ks"]
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_ovvhn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -594.0
+offset_top = -394.0
+offset_right = 2013.0
+offset_bottom = 1285.0
+color = Color(0, 0, 0, 0.13333334)
+
+[node name="01Tutorial" type="Sprite2D" parent="."]
+texture = ExtResource("1_p07fp")
+centered = false
+
+[node name="02Tutorial" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_ovvhn")
+centered = false
+
+[node name="03Tutorial" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_ug20x")
+centered = false
+
+[node name="04Tutorial" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_uux6d")
+centered = false
+
+[node name="InteractMarker" parent="." instance=ExtResource("5_4h5ks")]
+position = Vector2(641, 678)

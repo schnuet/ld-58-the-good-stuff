@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://bydvsuudsv7el"]
+
+[ext_resource type="Texture2D" uid="uid://cgdmoqaaw65y3" path="res://assets/ui/spacebar_markers.png" id="1_nwtqc"]
+[ext_resource type="Script" uid="uid://cxw6iq05cfyd3" path="res://components/interact_marker/interact_marker.gd" id="1_ri4yn"]
+[ext_resource type="Texture2D" uid="uid://b3v6bv4uhy3om" path="res://assets/ui/spacebar.png" id="2_ri4yn"]
+[ext_resource type="FontFile" uid="uid://bh6cmcq6iqe8s" path="res://assets/fonts/Freckle_Face/FreckleFace-Regular.ttf" id="4_np6ra"]
+
+[sub_resource type="Animation" id="Animation_8lb0l"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_np6ra"]
+resource_name = "bounce"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Group/Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.25, -0.083333336, 0, 0.083333336, 0, 1, -0.1777778, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.36666667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Group/Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.25, -0.083333336, 0, 0.083333336, 0, 1, -0.16111112, 0.16666669, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.36666667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ya3kn"]
+_data = {
+&"RESET": SubResource("Animation_8lb0l"),
+&"bounce": SubResource("Animation_np6ra")
+}
+
+[node name="InteractMarker" type="Node2D"]
+script = ExtResource("1_ri4yn")
+
+[node name="Group" type="Node2D" parent="."]
+scale = Vector2(0.7, 0.7)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Group"]
+modulate = Color(1, 1, 1, 0.4392157)
+texture = ExtResource("1_nwtqc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Group"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -1.4285713)
+texture = ExtResource("2_ri4yn")
+
+[node name="Label" type="Label" parent="Group/Sprite2D"]
+use_parent_material = true
+offset_left = -145.7143
+offset_top = -24.285715
+offset_right = 145.2857
+offset_bottom = 24.714285
+theme_override_colors/font_color = Color(1, 0.62352943, 0.19215687, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_np6ra")
+theme_override_font_sizes/font_size = 35
+text = "Space"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Group"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ya3kn")
+}

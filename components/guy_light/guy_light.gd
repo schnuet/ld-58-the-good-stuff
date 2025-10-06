@@ -11,6 +11,7 @@ var bought_out = false;
 @onready var requirements_bubble = $RequirementsBubble;
 @onready var idle_timer = $Timer;
 @onready var animated_sprite = $AnimatedSprite2D;
+@onready var interact_marker = $InteractMarker;
 
 @onready var voices = [$VoiceSound1, $VoiceSound2];
 
@@ -19,6 +20,7 @@ var requirements_timeout = 3.0;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	requirements_bubble.visible = false;
+	interact_marker.hide();
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,6 +38,7 @@ func _process(_delta: float) -> void:
 	if not player_inside:
 		if requirements_bubble.visible:
 			hide_requirements_bubble();
+			interact_marker.hide();
 		return;
 	
 	if battery_lamp.level >= 3:
@@ -43,6 +46,8 @@ func _process(_delta: float) -> void:
 		
 	if not requirements_bubble.visible:
 		play_voice();
+		if sweets_bag.sweets >= sweets_cost:
+			interact_marker.show();
 		show_requirements_bubble();
 
 	if Input.is_action_just_pressed("action"):
@@ -51,6 +56,7 @@ func _process(_delta: float) -> void:
 func interact():
 	var player = get_tree().get_first_node_in_group("player");
 	if player == null:
+		interact_marker.hide();
 		return;
 	
 	player.paused = true;
@@ -66,6 +72,7 @@ func interact():
 		update_sweets_cost(sweets_cost * 1.5);
 		if battery_lamp.level >= 3:
 			bought_out = true;
+			interact_marker.hide();
 			return;
 		await get_tree().create_timer(0.3).timeout;
 		play_voice();

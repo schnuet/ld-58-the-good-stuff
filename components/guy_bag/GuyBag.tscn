@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://c35vsi6j4jfh6"]
+[gd_scene load_steps=100 format=3 uid="uid://c35vsi6j4jfh6"]
 
 [ext_resource type="Script" uid="uid://30digliqoe6j" path="res://components/guy_bag/guy_bag.gd" id="1_3qk8i"]
 [ext_resource type="FontFile" uid="uid://bh6cmcq6iqe8s" path="res://assets/fonts/Freckle_Face/FreckleFace-Regular.ttf" id="2_7cj2p"]
@@ -95,6 +95,7 @@
 [ext_resource type="AudioStream" uid="uid://cmn1ochqbis6o" path="res://assets/sounds/NPC/02-Baggy-01.wav" id="91_brvfd"]
 [ext_resource type="AudioStream" uid="uid://y1qufa7aship" path="res://assets/sounds/NPC/02-Baggy-02.wav" id="92_os3u8"]
 [ext_resource type="AudioStream" uid="uid://dcn0ay086dqoc" path="res://assets/sounds/NPC/02-Baggy-03.wav" id="93_8avlt"]
+[ext_resource type="PackedScene" uid="uid://bydvsuudsv7el" path="res://components/interact_marker/InteractMarker.tscn" id="96_rbja8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfw10"]
 radius = 25.019993
@@ -390,17 +391,32 @@ shape = SubResource("CircleShape2D_fmrqw")
 light_mask = 0
 z_index = 20
 z_as_relative = false
+material = ExtResource("2_81nsi")
 position = Vector2(0, -61)
 metadata/_edit_group_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="RequirementsBubble"]
 light_mask = 0
 material = ExtResource("2_81nsi")
+use_parent_material = true
 polygon = PackedVector2Array(-2, -184, -8, -243, -73, -247, -142, -264, -159, -322, -135, -360, -58, -387, 42, -385, 153, -377, 197, -343, 193, -292, 184, -262, 135, -253, 46, -252, 15, -248)
+
+[node name="Label" type="Label" parent="RequirementsBubble"]
+use_parent_material = true
+offset_left = -125.0
+offset_top = -413.0
+offset_right = 166.0
+offset_bottom = -364.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_7cj2p")
+theme_override_font_sizes/font_size = 35
+text = "Bag Size"
+horizontal_alignment = 1
 
 [node name="sweets" type="Label" parent="RequirementsBubble"]
 light_mask = 0
 material = ExtResource("2_81nsi")
+use_parent_material = true
 offset_left = -114.0
 offset_top = -360.0
 offset_right = -55.0
@@ -412,6 +428,7 @@ text = "20"
 
 [node name="equals" type="Label" parent="RequirementsBubble"]
 material = ExtResource("2_81nsi")
+use_parent_material = true
 offset_left = 33.0
 offset_top = -338.0
 offset_right = 92.0
@@ -422,10 +439,12 @@ theme_override_font_sizes/font_size = 56
 text = "="
 
 [node name="IconCrapSweet" type="Sprite2D" parent="RequirementsBubble"]
+use_parent_material = true
 position = Vector2(-14, -313)
 texture = ExtResource("4_brvfd")
 
 [node name="TascheUpgrad100x100Px" type="Sprite2D" parent="RequirementsBubble"]
+use_parent_material = true
 position = Vector2(130, -310)
 texture = ExtResource("5_8avlt")
 
@@ -459,6 +478,9 @@ volume_db = -20.0
 [node name="VoiceSound3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("93_8avlt")
 volume_db = -20.0
+
+[node name="InteractMarker" parent="." instance=ExtResource("96_rbja8")]
+position = Vector2(0, -28)
 
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://biaao4gj3i4f6"]
+[gd_scene load_steps=99 format=3 uid="uid://biaao4gj3i4f6"]
 
 [ext_resource type="Script" uid="uid://cmrb11bgoafun" path="res://components/guy_light/guy_light.gd" id="1_5g427"]
 [ext_resource type="FontFile" uid="uid://bh6cmcq6iqe8s" path="res://assets/fonts/Freckle_Face/FreckleFace-Regular.ttf" id="2_d6on0"]
@@ -94,6 +94,7 @@
 [ext_resource type="AudioStream" uid="uid://c3hrq3ywbmdq2" path="res://assets/sounds/NPC/01-Skelly-01.wav" id="90_q1xps"]
 [ext_resource type="AudioStream" uid="uid://cy0ymwu0qsi65" path="res://assets/sounds/Battery/Battery-02.wav" id="90_r3ghi"]
 [ext_resource type="AudioStream" uid="uid://cqqxlthsvs3du" path="res://assets/sounds/NPC/01-Skelly-02.wav" id="91_afxf3"]
+[ext_resource type="PackedScene" uid="uid://bydvsuudsv7el" path="res://components/interact_marker/InteractMarker.tscn" id="95_efx8m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfw10"]
 radius = 25.019993
@@ -394,17 +395,30 @@ position = Vector2(0, -75)
 
 [node name="Polygon2D" type="Polygon2D" parent="RequirementsBubble"]
 light_mask = 0
-material = ExtResource("2_v05nx")
+use_parent_material = true
 polygon = PackedVector2Array(-2, -184, -8, -243, -73, -247, -142, -264, -159, -322, -135, -360, -58, -387, 42, -385, 153, -377, 197, -343, 193, -292, 184, -262, 135, -253, 46, -252, 15, -248)
 metadata/_edit_lock_ = true
 
 [node name="BatterieUpgrad100x100Px" type="Sprite2D" parent="RequirementsBubble"]
+use_parent_material = true
 position = Vector2(109, -307)
 texture = ExtResource("3_afxf3")
 
+[node name="Label" type="Label" parent="RequirementsBubble"]
+use_parent_material = true
+offset_left = -127.0
+offset_top = -407.0
+offset_right = 164.0
+offset_bottom = -358.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_d6on0")
+theme_override_font_sizes/font_size = 35
+text = "Lamp Battery"
+horizontal_alignment = 1
+
 [node name="sweets" type="Label" parent="RequirementsBubble"]
 light_mask = 0
-material = ExtResource("2_v05nx")
+use_parent_material = true
 offset_left = -114.0
 offset_top = -360.0
 offset_right = -55.0
@@ -415,7 +429,7 @@ theme_override_font_sizes/font_size = 56
 text = "20"
 
 [node name="equals" type="Label" parent="RequirementsBubble"]
-material = ExtResource("2_v05nx")
+use_parent_material = true
 offset_left = 31.0
 offset_top = -341.0
 offset_right = 90.0
@@ -426,6 +440,7 @@ theme_override_font_sizes/font_size = 56
 text = "="
 
 [node name="IconCrapSweet" type="Sprite2D" parent="RequirementsBubble"]
+use_parent_material = true
 position = Vector2(-17, -313)
 texture = ExtResource("5_afxf3")
 
@@ -455,6 +470,9 @@ volume_db = -20.0
 [node name="BuySound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("90_r3ghi")
 volume_db = -10.0
+
+[node name="InteractMarker" parent="." instance=ExtResource("95_efx8m")]
+position = Vector2(0, -37)
 
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

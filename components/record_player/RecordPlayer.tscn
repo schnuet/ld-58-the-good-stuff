@@ -240,7 +240,6 @@ shape = SubResource("CircleShape2D_5xjjv")
 [node name="MainMusic" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(640, 360)
 stream = ExtResource("52_hiq43")
-volume_db = -30.0
+volume_db = -20.0
 autoplay = true
 area_mask = 2048
-parameters/looping = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://18ek4mwfjisr"]
+[gd_scene load_steps=36 format=3 uid="uid://18ek4mwfjisr"]
 
 [ext_resource type="Script" uid="uid://b4s6b7uejes5p" path="res://components/child/child.gd" id="1_jfw10"]
 [ext_resource type="Texture2D" uid="uid://cxvbmjhairiin" path="res://components/child/anims/idle/Paula Pumpkin_00000.png" id="2_kw0xn"]
@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://wdclu73vrjte" path="res://assets/sounds/NPC/04-Petra Pumpkin-03.wav" id="28_mrp6r"]
 [ext_resource type="AudioStream" uid="uid://cgm2nh4xlhtox" path="res://assets/sounds/NPC/04-Petra Pumpkin-04.wav" id="29_i4agn"]
 [ext_resource type="AudioStream" uid="uid://dhcgq1y2278ob" path="res://assets/sounds/NPC/04-Petra Pumpkin-05.wav" id="30_efp20"]
+[ext_resource type="PackedScene" uid="uid://bydvsuudsv7el" path="res://components/interact_marker/InteractMarker.tscn" id="32_i4agn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kw0xn"]
 size = Vector2(222, 72)
@@ -208,6 +209,9 @@ volume_db = -20.0
 [node name="VoiceSound5" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_efp20")
 volume_db = -20.0
+
+[node name="InteractMarker" parent="." instance=ExtResource("32_i4agn")]
+position = Vector2(16, 33)
 
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

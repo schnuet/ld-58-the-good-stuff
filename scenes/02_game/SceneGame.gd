@@ -9,6 +9,7 @@ const primary_color = "#FF7532";
 
 
 func _ready():
+	player.paused = true;
 	$CanvasModulate.visible = true;
 	Globals.set("game_over_reason", "none");
 	
@@ -24,12 +25,13 @@ func _ready():
 	houses[22].sweet_type = "chocolate";
 	houses[32].make_special();
 	houses[32].sweet_type = "cookies";
-
-	ambient.play();
 	
 	return true;
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if not ambient.playing:
+		ambient.play()
+	
 	# set the ambient volume based on the distance to the audio stream player
 	# the farther away, the louder it gets
 	if record_player == null or ambient == null:
@@ -58,3 +60,9 @@ func sort_houses(a, b) -> bool:
 	if distance_a < distance_b:
 		return true;
 	return false;
+
+
+func _on_tutorial_done() -> void:
+	print("tuorial done");
+	player.paused = false;
+	$CanvasLayer/Tutorial.queue_free();

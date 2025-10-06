@@ -20,10 +20,10 @@ func _ready() -> void:
 	timer_flap.start(randi_range(10, 20));
 	timer_wind.start(randi_range(10, 20));
 
-	loop_wind.play();
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if not loop_wind.playing:
+		loop_wind.play();
 	loop_wind.volume_db = (get_light_percent() * -60) - 10;
 
 func get_light_percent():

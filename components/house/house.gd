@@ -13,6 +13,7 @@ var variant: String = "1";
 @onready var graphics_node = $Graphics;
 @onready var sweets_bag = get_tree().get_first_node_in_group("sweets_bag");
 @onready var player = get_tree().get_first_node_in_group("player");
+@onready var interact_marker = $InteractMarker;
 
 func _ready() -> void:
 	var variant_number = randi_range(1, 4);
@@ -42,18 +43,23 @@ func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return;
 	
-	if player != null:
-		var vertical_difference = global_position.y - player.global_position.y;
-		# scale house up if player above it, down if below
-		var scale_factor = 1.0 + (vertical_difference / 3000.0);
-		scale_factor = clamp(scale_factor, 0.75, 1.25);
-		graphics_node.scale = Vector2(scale_factor, scale_factor);
+	#if player != null:
+		#var vertical_difference = global_position.y - player.global_position.y;
+		## scale house up if player above it, down if below
+		#var scale_factor = 1.0 + (vertical_difference / 3000.0);
+		#scale_factor = clamp(scale_factor, 0.75, 1.25);
+		#graphics_node.scale = Vector2(scale_factor, scale_factor);
 	
 	if not player_inside:
+		if interact_marker.visible:
+			interact_marker.hide();
 		return
 	
 	if empty:
 		return;
+	
+	if not interact_marker.visible:
+		interact_marker.show();
 	
 	if Input.is_action_just_pressed("action"):
 		give_sweet();
@@ -99,6 +105,7 @@ func close_house():
 	print("close house");
 	animated_sprite.animation = str(variant) + "_dunkel";
 	empty = true;
+	interact_marker.hide();
 	$DoorClose.play();
 
 func reopen():
