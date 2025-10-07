@@ -14,6 +14,8 @@ extends Node2D
 
 @onready var loop_wind = $LoopWind;
 
+var f: int = 0;
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer_bush.start(randi_range(10, 20));
@@ -22,6 +24,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	f = (f+1) % 5;
+	if f != 0:
+		return;
 	if not loop_wind.playing:
 		loop_wind.play();
 	loop_wind.volume_db = (get_light_percent() * -60) - 10;

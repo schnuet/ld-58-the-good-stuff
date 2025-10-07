@@ -1,6 +1,7 @@
 extends AnimatedSprite2D
 
 
+@onready var player = get_tree().get_first_node_in_group("player");
 @onready var sounds = [$Sound1, $Sound2, $Sound3];
 @onready var timer = $Timer;
 
@@ -15,6 +16,8 @@ func _ready() -> void:
 	timer.start(randi_range(5, 9));
 
 func play_sound():
+	if player.global_position.distance_to(global_position) > 300:
+		return;
 	var max_voice = sounds.size() - 1;
 	var rand = randi_range(0, max_voice);
 	var voice = sounds[rand];

@@ -1,12 +1,12 @@
-[gd_scene load_steps=46 format=3 uid="uid://dob3oxs7ln2df"]
+[gd_scene load_steps=45 format=3 uid="uid://dob3oxs7ln2df"]
 
 [ext_resource type="Script" uid="uid://dbenuccxt1n84" path="res://scenes/02_game/SceneGame.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dwe2urxq3srxn" path="res://components/player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://bg3blqa5y2h3d" path="res://components/home_indicator/HomeIndicator.tscn" id="2_7yoka"]
 [ext_resource type="PackedScene" uid="uid://bdag2nqoj6q61" path="res://components/battery_loader/BatteryLoader.tscn" id="2_8v7vt"]
-[ext_resource type="AudioStream" uid="uid://nmc6a6wq885s" path="res://assets/music/Looking for the Good Stuff - Ambient Chills.mp3" id="2_d6txb"]
 [ext_resource type="PackedScene" uid="uid://du7mxbwb7rrjg" path="res://components/ambience_manager/AmbienceManager.tscn" id="2_idojj"]
 [ext_resource type="Texture2D" uid="uid://d0m4bbfe8dcqg" path="res://assets/ambience/Tileset/tileset-boden-hub.png" id="3_fwb00"]
+[ext_resource type="AudioStream" uid="uid://bh7fyep3xggil" path="res://assets/music/Looking for the Good Stuff - Ambient Chills.ogg" id="3_ghg77"]
 [ext_resource type="Texture2D" uid="uid://ybrrmn3mloqg" path="res://assets/ambience/Tileset/spiele-hintergrund-2.png" id="3_vdcri"]
 [ext_resource type="PackedScene" uid="uid://bx8uwa5pkxxwx" path="res://components/house/House.tscn" id="4_8mxrn"]
 [ext_resource type="Texture2D" uid="uid://ck8wlbjmbywlq" path="res://assets/ambience/Tileset/tileset-boden-01.png" id="4_idojj"]
@@ -38,7 +38,6 @@
 [ext_resource type="PackedScene" uid="uid://mmdjlfggkc0q" path="res://components/deko/Busch2.tscn" id="32_lllvj"]
 [ext_resource type="PackedScene" uid="uid://di4ba1t0wlwmb" path="res://components/deko/Pumpkin1.tscn" id="33_8e0bd"]
 [ext_resource type="PackedScene" uid="uid://fqfqvvommvi2" path="res://components/deko/Mülleimer.tscn" id="33_lqxoc"]
-[ext_resource type="Texture2D" uid="uid://2jjp3m7uv4a7" path="res://components/deko/sprites_leuchtend/laterne.png" id="34_8e0bd"]
 [ext_resource type="PackedScene" uid="uid://hbjxcm1cocwe" path="res://components/deko/Zaun.tscn" id="34_lllvj"]
 [ext_resource type="PackedScene" uid="uid://64qtrai0mol4" path="res://components/deko/Busch4.tscn" id="35_1diih"]
 [ext_resource type="PackedScene" uid="uid://darqvop5geah" path="res://components/eyes/Eyes.tscn" id="35_ghg77"]
@@ -52,7 +51,7 @@ script = ExtResource("1")
 [node name="AmbienceManager" parent="." instance=ExtResource("2_idojj")]
 
 [node name="Ambient" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_d6txb")
+stream = ExtResource("3_ghg77")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
@@ -3382,14 +3381,6 @@ position = Vector2(2655, 206)
 [node name="Busch23" parent="Objects/Deko" instance=ExtResource("35_1diih")]
 position = Vector2(2657, 299)
 
-[node name="Laterne9" type="Sprite2D" parent="Objects/Deko"]
-position = Vector2(-1019, -1339)
-texture = ExtResource("34_8e0bd")
-
-[node name="Laterne12" type="Sprite2D" parent="Objects/Deko"]
-position = Vector2(-3962, -1162)
-texture = ExtResource("34_8e0bd")
-
 [node name="Mülleimer17" parent="Objects/Deko" instance=ExtResource("33_lqxoc")]
 position = Vector2(-1713, 1208)
 
@@ -3557,6 +3548,12 @@ position = Vector2(-1014, 2213)
 
 [node name="Laterne11" parent="Objects/Deko" instance=ExtResource("31_w10q6")]
 position = Vector2(-303, 1134)
+
+[node name="Laterne10" parent="Objects/Deko" instance=ExtResource("31_w10q6")]
+position = Vector2(-1014, -1167)
+
+[node name="Laterne9" parent="Objects/Deko" instance=ExtResource("31_w10q6")]
+position = Vector2(-3962, -979)
 
 [node name="Sky" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

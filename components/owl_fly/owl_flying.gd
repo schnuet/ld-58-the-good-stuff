@@ -59,6 +59,8 @@ func start_new_trip():
 	arrived = false;
 
 func play_voice():
+	if player.global_position.distance_to(global_position) > 1200:
+		return;
 	var max_voice = voices.size() - 1;
 	var rand = randi_range(0, max_voice);
 	var voice = voices[rand];

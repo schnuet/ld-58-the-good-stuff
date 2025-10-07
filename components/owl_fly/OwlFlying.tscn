@@ -77,13 +77,13 @@ sprite_frames = SubResource("SpriteFrames_u5oxq")
 [node name="Call1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_oli74")
 volume_db = -15.22
-max_distance = 1268.0
+max_distance = 1200.0
 panning_strength = 1.48
 
 [node name="Call2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_nrttn")
 volume_db = -15.22
-max_distance = 1268.0
+max_distance = 1200.0
 panning_strength = 1.48
 
 [node name="CallTimer" type="Timer" parent="."]

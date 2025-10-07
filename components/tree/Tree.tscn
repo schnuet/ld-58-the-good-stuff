@@ -655,4 +655,7 @@ max_distance = 306.0
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+rect = Rect2(-310, -977, 604, 1007)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
